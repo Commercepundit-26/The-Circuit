@@ -60,9 +60,9 @@
     inset: 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    padding: clamp(28px, 3.5vh, 48px) clamp(28px, 4vw, 88px) clamp(72px, 8vh, 96px);
+    justify-content: center;
+    align-items: center;
+    padding: clamp(48px, 6vh, 80px) clamp(48px, 5vw, 100px) clamp(88px, 10vh, 120px);
     opacity: 0;
     pointer-events: none;
     transform: translateY(12px);
@@ -86,6 +86,7 @@
   .slide.slide-dark {
     background: #0a0b0e;
     color: #ffffff;
+    justify-content: space-between;
   }
 
   .slide.slide-dark .ghost-num {
@@ -135,22 +136,23 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* Natural Top-Aligned Content Flow across ALL Inner Slides */
+  /* Balanced Architectural Content Canvas across ALL Inner Slides */
   .body-wrap {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: none;
-    margin: 0;
+    max-width: 1560px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    gap: clamp(28px, 3.5vh, 48px);
   }
 
   /* Header Anchor Section - Consistent Baseline across slides */
   .slide-header {
     width: 100%;
-    margin-bottom: clamp(20px, 3vh, 32px);
+    margin-bottom: clamp(12px, 1.5vh, 20px);
   }
 
   .kicker {
@@ -253,11 +255,12 @@
 
   .pillar-card {
     border-top: 2px solid var(--ink);
-    padding-top: 24px;
+    padding-top: 28px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 240px;
+    justify-content: flex-start;
+    gap: 16px;
+    min-height: 260px;
   }
 
   .pillar-num {
@@ -271,17 +274,16 @@
 
   .pillar-card h3 {
     font-family: var(--serif);
-    font-size: 22px;
+    font-size: clamp(22px, 1.8vw, 30px);
     font-weight: 500;
-    margin-bottom: 12px;
-    line-height: 1.4;
+    line-height: 1.25;
     color: var(--ink);
   }
 
   .pillar-card p {
-    font-size: 14.5px;
+    font-size: clamp(15px, 1.05vw, 17.5px);
     color: var(--mute);
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   /* Slide 03: The Circuit Narrative */
@@ -310,23 +312,21 @@
 
   .circuit-name {
     font-family: var(--serif);
-    font-size: 26px;
+    font-size: clamp(26px, 2.2vw, 36px);
     font-weight: 500;
-    margin-bottom: 6px;
     color: var(--ink);
   }
 
   .circuit-floor {
-    font-size: 13.5px;
+    font-size: 14.5px;
     font-weight: 600;
     color: var(--ink);
-    margin-bottom: 10px;
   }
 
   .circuit-desc {
-    font-size: 13.5px;
+    font-size: clamp(14px, 1vw, 16px);
     color: var(--mute);
-    line-height: 1.5;
+    line-height: 1.65;
   }
 
   .circuit-spine-bar {
@@ -366,11 +366,12 @@
 
   .scope-col {
     border-top: 2px solid var(--ink);
-    padding-top: 20px;
+    padding-top: 24px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 220px;
+    justify-content: flex-start;
+    gap: 10px;
+    min-height: 240px;
   }
 
   .scope-index {
@@ -764,12 +765,22 @@
 
   /* Closing Slide */
   .closing-layout {
-    min-height: 68vh;
+    min-height: calc(100vh - clamp(110px, 13vh, 150px));
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
+    padding-top: clamp(24px, 4vh, 48px);
+  }
+
+  .closing-main-block {
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .closing-layout h1 {
@@ -784,7 +795,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #8c909a;
-    margin-top: 32px;
+    padding-bottom: 12px;
   }
 
   /* Fixed Navigation Dock */
@@ -2008,9 +2019,11 @@
   <section class="slide slide-dark" data-slide="19">
     <span class="ghost-num">19</span>
     <div class="body-wrap closing-layout">
-      <p class="kicker" style="justify-content: center;">Open for Discussion</p>
-      <h1>Thoughts & Perspectives</h1>
-      <p class="lede" style="text-align: center;">A coherent visual design and spatial naming framework to bring identity, pride, and clear orientation to the workplace.</p>
+      <div class="closing-main-block">
+        <p class="kicker" style="justify-content: center;">Open for Discussion</p>
+        <h1>Thoughts & Perspectives</h1>
+        <p class="lede" style="text-align: center;">A coherent visual design and spatial naming framework to bring identity, pride, and clear orientation to the workplace.</p>
+      </div>
       <div class="closing-tagline">Thank You • The Circuit</div>
     </div>
   </section>
