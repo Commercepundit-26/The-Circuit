@@ -160,17 +160,19 @@
     letter-spacing: 0.04em;
     color: var(--mute);
     margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: block;
+    line-height: 1.4;
   }
 
   .kicker::before {
     content: "";
     display: inline-block;
+    vertical-align: middle;
     width: 16px;
     height: 1.5px;
     background: var(--ink);
+    margin-right: 8px;
+    margin-bottom: 2px;
   }
 
   h1 {
@@ -520,9 +522,7 @@
   }
 
   .swatch-rgb {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--mute-light);
+    display: none;
   }
 
   .palette-subhead {
@@ -538,13 +538,11 @@
   /* Small Story Callout Strip */
   .small-story-bar {
     margin-top: clamp(20px, 3vh, 32px);
-    padding: 14px 18px;
+    padding: 14px 20px;
     background: #fbfbfb;
     border-left: 3px solid var(--ink);
     border-radius: 0 4px 4px 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
+    display: block;
     max-width: 100%; width: 100%;
   }
 
@@ -1180,10 +1178,10 @@
         <div class="cover-pretitle">The Building Narrative</div>
         <h1>The Circuit</h1>
         <p class="lede" style="font-size: clamp(18px, 2vw, 26px); line-height: 1.5; color: #ffffff; max-width: none;">
-          <strong>Origin &rarr; Ignite &rarr; Nexus &rarr; The Bridge</strong>, connected by <strong>The Current</strong> (the staircase).
+          <strong>Origin &rarr; Ignite &rarr; Nexus &rarr; The Bridge</strong>, connected by <strong>The Current</strong>.
         </p>
         <p style="font-size: clamp(15px, 1.1vw, 18px); color: #9499a8; line-height: 1.6; max-width: none; margin-top: 10px;">
-          One story: you start at Origin, energy gets sparked at Ignite, it scales through Nexus, and gets steered from The Bridge.
+          You start at Origin, energy gets sparked at Ignite, it scales through Nexus, and gets steered from The Bridge.
         </p>
       </div>
 
@@ -1243,7 +1241,7 @@
       <div class="slide-header">
         <p class="kicker">The Building Narrative</p>
         <h2>The Circuit: One Continuous Story</h2>
-        <p class="lede">One story: you start at Origin, energy gets sparked at Ignite, it scales through Nexus, and gets steered from The Bridge — connected by The Current.</p>
+        <p class="lede">You start at Origin, energy gets sparked at Ignite, it scales through Nexus, and gets steered from The Bridge, connected by The Current.</p>
       </div>
 
       <div class="circuit-track">
@@ -1341,7 +1339,7 @@
       <div class="slide-header">
         <p class="kicker">Ground Floor</p>
         <h2>The Origin</h2>
-        <p class="lede">Naming the Ground Floor: The starting point, shared by everyone.</p>
+        <p class="lede">The starting point, shared by everyone.</p>
       </div>
 
       <div class="floor-content-grid">
@@ -1351,7 +1349,7 @@
 
           <div class="theme-detail-section">
             <span class="theme-section-label">Why This Name</span>
-            <p class="theme-section-body">This floor belongs to no single brand — it is common ground for everyone (Reception, HR, Cafeteria, Gaming Zone, and Friday activities). "Origin" is also a real coordinate and coding term for "the starting point" — an intentional double meaning for a company built on software.</p>
+            <p class="theme-section-body">This floor belongs to no single brand: common ground for everyone (Reception, HR, Cafeteria, Gaming Zone, and Friday activities). "Origin" is also a real coordinate and coding term for "the starting point" — an intentional double meaning for a company built on software.</p>
           </div>
 
           <div class="theme-detail-section">
@@ -1361,7 +1359,7 @@
 
           <div class="theme-detail-section">
             <span class="theme-section-label">Visual Reference Concept</span>
-            <p class="theme-section-body">Team-building and "coming together" language — phrases and imagery around collaboration, arrival, and shared ground. Casual, warm photography in the cafeteria and gaming zone, distinctly separated from the more composed reception area.</p>
+            <p class="theme-section-body">Team-building and "coming together" language, with phrases and imagery around collaboration, arrival, and shared ground. Casual, warm photography in the cafeteria and gaming zone, distinctly separated from the more composed reception area.</p>
           </div>
         </div>
 
@@ -1371,35 +1369,31 @@
             <img src="Brand Logos/WF247_Horizontal-3Color.svg" alt="Workforce 24/7 Logo" />
           </div>
 
-          <p class="palette-subhead">Neutral Base Throughout • Light Touch on 2 HR Cabins Only (Click to Copy)</p>
+          
 
           <div class="swatch-strip cols-4">
             <div class="swatch-item" onclick="copyColor('#1B75BB', 'Workforce Ocean Blue')">
               <div class="swatch-bar" style="background: #1B75BB;"></div>
               <div class="swatch-label">Ocean Blue</div>
               <div class="swatch-hex">#1B75BB</div>
-              <div class="swatch-rgb">27, 117, 187</div>
             </div>
 
             <div class="swatch-item" onclick="copyColor('#28C3F3', 'Workforce Sky Cyan')">
               <div class="swatch-bar" style="background: #28C3F3;"></div>
               <div class="swatch-label">Sky Cyan</div>
               <div class="swatch-hex">#28C3F3</div>
-              <div class="swatch-rgb">40, 195, 243</div>
             </div>
 
             <div class="swatch-item" onclick="copyColor('#152E51', 'Workforce Midnight Navy')">
               <div class="swatch-bar" style="background: #152E51;"></div>
               <div class="swatch-label">Midnight Navy</div>
               <div class="swatch-hex">#152E51</div>
-              <div class="swatch-rgb">21, 46, 81</div>
             </div>
 
             <div class="swatch-item" onclick="copyColor('#FFFFFF', 'Crisp White')">
               <div class="swatch-bar" style="background: #FFFFFF;"></div>
               <div class="swatch-label">Crisp White</div>
               <div class="swatch-hex">#FFFFFF</div>
-              <div class="swatch-rgb">255, 255, 255</div>
             </div>
           </div>
         </div>
@@ -1413,42 +1407,42 @@
     <div class="body-wrap">
       <div class="slide-header">
         <p class="kicker">Ground Floor • Room Names</p>
-        <h2>The Origin — Meeting Spaces</h2>
-        <p class="lede">Room names from one family: "Grounding & Growth" — arriving, finding footing, and growing from here.</p>
+        <h2>The Origin</h2>
+        <p class="lede">Room names from one family: "Grounding & Growth", arriving, finding footing, and growing from here.</p>
       </div>
 
       <div class="rooms-grid cols-4">
         <div class="room-card">
           <div class="room-tag">TA CABIN</div>
-          <div class="room-name">Discover</div>
+          <div class="room-name">The Discover</div>
           <div class="room-function">Finding People</div>
           <p class="room-desc">Dedicated space for talent acquisition and prospective candidates taking their initial step into the company.</p>
         </div>
 
         <div class="room-card">
           <div class="room-tag">HR OPS CABIN</div>
-          <div class="room-name">Thrive</div>
+          <div class="room-name">The Thrive</div>
           <div class="room-function">Supporting People</div>
           <p class="room-desc">People operations hub focused on team member development, ongoing support, and coaching.</p>
         </div>
 
         <div class="room-card">
           <div class="room-tag">CONF ROOM 1</div>
-          <div class="room-name">Base</div>
+          <div class="room-name">The Base</div>
           <div class="room-function">The Starting Point Everyone Needs</div>
           <p class="room-desc">Where conversations begin. The central collaborative room for arrivals, first meetings, and initial syncs.</p>
         </div>
 
         <div class="room-card">
           <div class="room-tag">CONF ROOM 2</div>
-          <div class="room-name">Root</div>
+          <div class="room-name">The Root</div>
           <div class="room-function">Where You Settle In & Take Hold</div>
           <p class="room-desc">Where conversations settle in and take hold. Focused room for deeper dialogues, alignment, and grounded discussions.</p>
         </div>
       </div>
 
       <div class="small-story-bar">
-        <span class="small-story-badge">The Small Story</span>
+        
         <div class="small-story-text">
           <strong>Base &rarr; Root:</strong> Base is where a conversation begins (interviews, first meetings, visitors walking in); Root is where it settles in and gets grounded (a more focused, longer discussion). One is arrival, the other is depth.
         </div>
@@ -1463,7 +1457,7 @@
       <div class="slide-header">
         <p class="kicker">1<sup>st</sup> Floor</p>
         <h2>The Ignite</h2>
-        <p class="lede">Naming the 1<sup>st</sup> Floor: Kitchen365 — The moment that growth starts.</p>
+        <p class="lede">Kitchen365: The moment that growth starts.</p>
       </div>
 
       <div class="floor-content-grid">
@@ -1473,7 +1467,7 @@
 
           <div class="theme-detail-section">
             <span class="theme-section-label">Why This Name</span>
-            <p class="theme-section-body">Kitchen365 builds the software that helps an entire industry grow — "Ignite" is the moment that growth starts. It ties naturally to the orange palette without any literal cabinetry reference.</p>
+            <p class="theme-section-body">Kitchen365 builds the software that helps an entire industry grow. "Ignite" is the moment that growth starts. It ties naturally to the orange palette without any literal cabinetry reference.</p>
           </div>
 
           <div class="theme-detail-section">
@@ -1483,7 +1477,7 @@
 
           <div class="theme-detail-section">
             <span class="theme-section-label">Visual Reference Concept</span>
-            <p class="theme-section-body">Growth and momentum idioms — language and imagery about small beginnings becoming something substantial. Warm, glowing gradient abstraction as the visual family (focusing on color and energetic warmth, not literal fire).</p>
+            <p class="theme-section-body">Growth and momentum idioms, with language and imagery about small beginnings becoming something substantial. Warm, glowing gradient abstraction as the visual family (focusing on color and energetic warmth, not literal fire).</p>
           </div>
         </div>
 
@@ -1493,35 +1487,31 @@
             <img src="Brand Logos/Kitchen365.svg" alt="Kitchen365 Logo" />
           </div>
 
-          <p class="palette-subhead">Official Brand Palette (Click to Copy)</p>
+          <p class="palette-subhead">Official Brand Palette</p>
 
           <div class="swatch-strip cols-4">
             <div class="swatch-item" onclick="copyColor('#FF7A29', 'Kitchen365 Orange')">
               <div class="swatch-bar" style="background: #FF7A29;"></div>
               <div class="swatch-label">Kitchen Orange</div>
               <div class="swatch-hex">#FF7A29</div>
-              <div class="swatch-rgb">255, 122, 41</div>
             </div>
 
             <div class="swatch-item" onclick="copyColor('#FCA311', 'Amber Glow')">
               <div class="swatch-bar" style="background: #FCA311;"></div>
               <div class="swatch-label">Amber Glow</div>
               <div class="swatch-hex">#FCA311</div>
-              <div class="swatch-rgb">252, 163, 17</div>
             </div>
 
             <div class="swatch-item" onclick="copyColor('#222222', 'Charcoal Jet')">
               <div class="swatch-bar" style="background: #222222;"></div>
               <div class="swatch-label">Charcoal Jet</div>
               <div class="swatch-hex">#222222</div>
-              <div class="swatch-rgb">34, 34, 34</div>
             </div>
 
             <div class="swatch-item" onclick="copyColor('#FFFFFF', 'Crisp White')">
               <div class="swatch-bar" style="background: #FFFFFF;"></div>
               <div class="swatch-label">Crisp White</div>
               <div class="swatch-hex">#FFFFFF</div>
-              <div class="swatch-rgb">255, 255, 255</div>
             </div>
           </div>
         </div>
@@ -1535,28 +1525,28 @@
     <div class="body-wrap">
       <div class="slide-header">
         <p class="kicker">1<sup>st</sup> Floor • Room Names</p>
-        <h2>The Ignite — Meeting Spaces</h2>
-        <p class="lede">Room names from one sequential family: "Fire & Energy" — spark, then build.</p>
+        <h2>The Ignite</h2>
+        <p class="lede">Room names from one sequential family: "Fire & Energy": spark, then build.</p>
       </div>
 
       <div class="rooms-grid cols-2">
         <div class="room-card" style="padding-top: 24px;">
           <div class="room-tag">CONF ROOM 1</div>
-          <div class="room-name" >Kindle</div>
+          <div class="room-name">The Kindle</div>
           <div class="room-function">The Spark That Starts Something</div>
           <p class="room-desc" style="font-size: 15px; line-height: 1.6;">The spark that starts something. Whiteboard-intensive ideation suite where early concepts and user journeys are first ignited.</p>
         </div>
 
         <div class="room-card" style="padding-top: 24px;">
           <div class="room-tag">CONF ROOM 2</div>
-          <div class="room-name" >Forge</div>
+          <div class="room-name">The Forge</div>
           <div class="room-function">Shaping & Building That Follows</div>
           <p class="room-desc" style="font-size: 15px; line-height: 1.6;">The shaping and building that follows the spark. The main conference workshop where software releases and solutions are forged.</p>
         </div>
       </div>
 
       <div class="small-story-bar">
-        <span class="small-story-badge">The Small Story</span>
+        
         <div class="small-story-text">
           <strong>Kindle &rarr; Forge:</strong> Kindle &rarr; Forge tells a sequential story (spark, then build) rather than two words meaning the same thing.
         </div>
@@ -1571,7 +1561,7 @@
       <div class="slide-header">
         <p class="kicker">2<sup>nd</sup> & 3<sup>rd</sup> Floors</p>
         <h2>The Nexus</h2>
-        <p class="lede">Naming the 2<sup>nd</sup> & 3<sup>rd</sup> Floors: Where speed, engineering scale, and connection live.</p>
+        <p class="lede">Where speed, engineering scale, and connection live.</p>
       </div>
 
       <div class="floor-content-grid">
@@ -1581,7 +1571,7 @@
 
           <div class="theme-detail-section">
             <span class="theme-section-label">Why This Name</span>
-            <p class="theme-section-body">CommercePundit is AI-led ecommerce — "Nexus" is a genuine network and connection-point term, fitting without being a generic buzzword. One unified identity spans both floors since it is one continuous team.</p>
+            <p class="theme-section-body">CommercePundit is AI-led ecommerce: "Nexus" is a genuine network and connection-point term, fitting without being a generic buzzword. One unified identity spans both floors since it is one continuous team.</p>
           </div>
 
           <div class="theme-detail-section">
@@ -1591,7 +1581,7 @@
 
           <div class="theme-detail-section">
             <span class="theme-section-label">Visual Reference Concept</span>
-            <p class="theme-section-body">Coding culture and hustle-adjacent language — terminal and monospace typography, developer in-jokes, and an "always shipping" energy. This is the floor where the tech-forward tone comes through most distinctly.</p>
+            <p class="theme-section-body">Coding culture and hustle-adjacent language: terminal and monospace typography, developer in-jokes, and an "always shipping" energy. This is the floor where the tech-forward tone comes through most distinctly.</p>
           </div>
         </div>
 
@@ -1608,21 +1598,18 @@
                 <div class="swatch-bar" style="background: #f2f2f2; border-color: #ddd;"></div>
                 <div class="swatch-label">Concrete</div>
                 <div class="swatch-hex">#F2F2F2</div>
-                <div class="swatch-rgb">242, 242, 242</div>
               </div>
 
               <div class="swatch-item" onclick="copyColor('#ffffff', 'White')">
                 <div class="swatch-bar" style="background: #ffffff; border-color: #eee;"></div>
                 <div class="swatch-label">White</div>
                 <div class="swatch-hex">#FFFFFF</div>
-                <div class="swatch-rgb">255, 255, 255</div>
               </div>
 
               <div class="swatch-item" onclick="copyColor('#000000', 'Black')">
                 <div class="swatch-bar" style="background: #000000;"></div>
                 <div class="swatch-label">Black</div>
                 <div class="swatch-hex">#000000</div>
-                <div class="swatch-rgb">0, 0, 0</div>
               </div>
             </div>
 
@@ -1632,21 +1619,18 @@
                 <div class="swatch-bar" style="background: #fc766a;"></div>
                 <div class="swatch-label">Bittersweet</div>
                 <div class="swatch-hex">#FC766A</div>
-                <div class="swatch-rgb">252, 118, 106</div>
               </div>
 
               <div class="swatch-item" onclick="copyColor('#95e2e2', 'Morning Glory')">
                 <div class="swatch-bar" style="background: #95e2e2;"></div>
                 <div class="swatch-label">Morning Glory</div>
                 <div class="swatch-hex">#95E2E2</div>
-                <div class="swatch-rgb">149, 226, 226</div>
               </div>
 
               <div class="swatch-item" onclick="copyColor('#005463', 'Sherpa Blue')">
                 <div class="swatch-bar" style="background: #005463;"></div>
                 <div class="swatch-label">Sherpa Blue</div>
                 <div class="swatch-hex">#005463</div>
-                <div class="swatch-rgb">0, 84, 99</div>
               </div>
             </div>
           </div>
@@ -1661,63 +1645,63 @@
     <div class="body-wrap">
       <div class="slide-header">
         <p class="kicker">2<sup>nd</sup> & 3<sup>rd</sup> Floors • Room Names</p>
-        <h2>The Nexus — Meeting Spaces</h2>
+        <h2>The Nexus</h2>
         <p class="lede">Room names from one family: "Network Topology" (7 spaces across both floors).</p>
       </div>
 
       <div class="rooms-grid cols-4">
         <div class="room-card">
           <div class="room-tag">2<sup>nd</sup> FL • CONF 1</div>
-          <div class="room-name">Node</div>
+          <div class="room-name">The Node</div>
           <div class="room-function">A Single Connection Point</div>
           <p class="room-desc">Focused space for 2–3 person engineering syncs and architectural checkpoints.</p>
         </div>
 
         <div class="room-card">
           <div class="room-tag">2<sup>nd</sup> FL • CONF 2</div>
-          <div class="room-name">Link</div>
+          <div class="room-name">The Link</div>
           <div class="room-function">Connection Between Two Points</div>
           <p class="room-desc">Where ideas connect. Collaborative space linking tech architecture with client design.</p>
         </div>
 
         <div class="room-card">
           <div class="room-tag">2<sup>nd</sup> FL • SERVER</div>
-          <div class="room-name">Core</div>
+          <div class="room-name">The Core</div>
           <div class="room-function">The Center of the Network</div>
           <p class="room-desc">The center of the network. Technological heartbeat and server infrastructure powering operations.</p>
         </div>
 
         <div class="room-card">
           <div class="room-tag">3<sup>rd</sup> FL • CONF 1</div>
-          <div class="room-name">Path</div>
+          <div class="room-name">The Path</div>
           <div class="room-function">The Route Across Network</div>
           <p class="room-desc">Strategic planning suite mapping out technical milestones and sprint roadmaps.</p>
         </div>
 
         <div class="room-card">
           <div class="room-tag">3<sup>rd</sup> FL • CONF 2</div>
-          <div class="room-name">Grid</div>
+          <div class="room-name">The Grid</div>
           <div class="room-function">A Structured Network</div>
           <p class="room-desc">Structured, connected thinking. Main multi-team conference room for scrums and reviews.</p>
         </div>
 
         <div class="room-card">
           <div class="room-tag">3<sup>rd</sup> FL • CONF 3</div>
-          <div class="room-name">Mesh</div>
+          <div class="room-name">The Mesh</div>
           <div class="room-function">An Interwoven Network</div>
           <p class="room-desc">Where teams interweave. Relaxed collaborative lounge for cross-functional exchange.</p>
         </div>
 
         <div class="room-card">
           <div class="room-tag">3<sup>rd</sup> FL • CONF 4</div>
-          <div class="room-name">Loop</div>
+          <div class="room-name">The Loop</div>
           <div class="room-function">Coming Full Circle</div>
           <p class="room-desc">Where the network comes full circle. Dedicated post-launch retrospective and feedback suite.</p>
         </div>
       </div>
 
       <div class="small-story-bar" style="margin-top: 24px;">
-        <span class="small-story-badge">Network Topology</span>
+        
         <div class="small-story-text">
           Every name here comes from the same vocabulary — literal parts of how a network is described — so they read as one coherent architectural system rather than seven unrelated tech words.
         </div>
@@ -1732,7 +1716,7 @@
       <div class="slide-header">
         <p class="kicker">4<sup>th</sup> Floor</p>
         <h2>The Bridge</h2>
-        <p class="lede">Naming the 4<sup>th</sup> Floor: Where leadership steers, and vision aligns.</p>
+        <p class="lede">Where leadership steers, and vision aligns.</p>
       </div>
 
       <div class="floor-content-grid">
@@ -1742,17 +1726,17 @@
 
           <div class="theme-detail-section">
             <span class="theme-section-label">Why This Name</span>
-            <p class="theme-section-body">Leadership floor — "The Bridge" is literally where a ship is steered from (CEO cabin, Director cabin, board room), and narratively it is where Ignite (orange) and Nexus (teal) quietly meet.</p>
+            <p class="theme-section-body">Leadership floor: "The Bridge" is literally where a ship is steered from (CEO cabin, Director cabin, board room), and narratively where Ignite (orange) and Nexus (teal) quietly meet.</p>
           </div>
 
           <div class="theme-detail-section">
             <span class="theme-section-label">What It Covers & Reflects</span>
-            <p class="theme-section-body">CEO cabin, Director cabin (both intentionally left unnamed, as requested), the Board Room, and 2 conference suites. Primarily used for executive governance, interviews, visitors, and vendors — light-touch and understated, not heavily designed.</p>
+            <p class="theme-section-body">CEO cabin, Director cabin, the Board Room, and 2 conference suites. Primarily used for executive governance, interviews, visitors, and vendors: light-touch and understated, not heavily designed.</p>
           </div>
 
           <div class="theme-detail-section">
             <span class="theme-section-label">Visual Reference Concept</span>
-            <p class="theme-section-body">Leadership and vision language — steady, forward-looking, and understated. Skyline and horizon-toned imagery as the visual family, keeping the aesthetic quiet and commanding.</p>
+            <p class="theme-section-body">Leadership and vision language: steady, forward-looking, and understated. Skyline and horizon-toned imagery as the visual family, keeping the aesthetic quiet and commanding.</p>
           </div>
         </div>
 
@@ -1762,35 +1746,31 @@
             <span style="font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--ink);">Executive & Client Governance</span>
           </div>
 
-          <p class="palette-subhead">Neutral Base • Subtle Orange + Teal Blend Only on Board Room Signature Wall (Click to Copy)</p>
+          <p class="palette-subhead">Neutral Base • Subtle Orange + Teal Blend on Board Room Signature Wall</p>
 
           <div class="swatch-strip cols-4">
             <div class="swatch-item" onclick="copyColor('#F8F6F0', 'Alabaster')">
               <div class="swatch-bar" style="background: #F8F6F0; border-color: #ddd;"></div>
               <div class="swatch-label">Alabaster</div>
               <div class="swatch-hex">#F8F6F0</div>
-              <div class="swatch-rgb">248, 246, 240</div>
             </div>
 
             <div class="swatch-item" onclick="copyColor('#2D2D2D', 'Graphite')">
               <div class="swatch-bar" style="background: #2D2D2D;"></div>
               <div class="swatch-label">Graphite</div>
               <div class="swatch-hex">#2D2D2D</div>
-              <div class="swatch-rgb">45, 45, 45</div>
             </div>
 
             <div class="swatch-item" onclick="copyColor('#8C7355', 'Warm Bronze')">
               <div class="swatch-bar" style="background: #8C7355;"></div>
               <div class="swatch-label">Warm Bronze</div>
               <div class="swatch-hex">#8C7355</div>
-              <div class="swatch-rgb">140, 115, 85</div>
             </div>
 
             <div class="swatch-item" onclick="copyColor('#E2E6EA', 'Subtle Slate')">
               <div class="swatch-bar" style="background: #E2E6EA; border-color: #ccc;"></div>
               <div class="swatch-label">Subtle Slate</div>
               <div class="swatch-hex">#E2E6EA</div>
-              <div class="swatch-rgb">226, 230, 234</div>
             </div>
           </div>
         </div>
@@ -1804,38 +1784,38 @@
     <div class="body-wrap">
       <div class="slide-header">
         <p class="kicker">4<sup>th</sup> Floor • Room Names</p>
-        <h2>The Bridge — Meeting Spaces</h2>
+        <h2>The Bridge</h2>
         <p class="lede">Room names from one family: "Steady Points & Sightlines" (matches The Bridge).</p>
       </div>
 
       <div class="rooms-grid cols-3">
         <div class="room-card" style="padding-top: 24px;">
           <div class="room-tag">BOARD ROOM</div>
-          <div class="room-name" >Atlanta</div>
+          <div class="room-name">The Atlanta</div>
           <div class="room-function">Executive Boardroom</div>
           <p class="room-desc" style="font-size: 14.5px; line-height: 1.6;">Kept as the one intentional exception, tied to the actual HQ. Flagship boardroom for high-stakes governance and milestone decisions.</p>
         </div>
 
         <div class="room-card" style="padding-top: 24px;">
           <div class="room-tag">CONF ROOM 1</div>
-          <div class="room-name" >Anchor</div>
+          <div class="room-name">The Anchor</div>
           <div class="room-function">Steady Ground for Big Decisions</div>
           <p class="room-desc" style="font-size: 14.5px; line-height: 1.6;">Steady ground for big decisions. Leadership suite providing calm, confidential clarity for strategy and governance.</p>
         </div>
 
         <div class="room-card" style="padding-top: 24px;">
           <div class="room-tag">CONF ROOM 2</div>
-          <div class="room-name" >Horizon</div>
+          <div class="room-name">The Horizon</div>
           <div class="room-function">A View Toward What's Next</div>
           <p class="room-desc" style="font-size: 14.5px; line-height: 1.6;">A view toward what's next. Premium suite looking outward toward global market expansion, partnerships, and future horizons.</p>
         </div>
       </div>
 
       <div class="small-story-bar">
-        <span class="small-story-badge">The Small Story</span>
+        
         <div class="small-story-text">
-          <strong>Anchor &rarr; Horizon:</strong> Anchor is stability (where a decision gets steadied); Horizon is what comes after (where the conversation looks ahead). Grounding, then vision — following the same logic as every other paired floor.
-          <span style="display: block; margin-top: 4px; font-size: 12.5px; color: var(--mute-light);"><em>Note: CEO and Director cabins are intentionally left unnamed, as requested.</em></span>
+          <strong>Anchor &rarr; Horizon:</strong> Anchor is stability (where a decision gets steadied); Horizon is what comes after (where the conversation looks ahead). Grounding, then vision, following the same logic as every other paired floor.
+          
         </div>
       </div>
     </div>
@@ -1847,7 +1827,7 @@
     <div class="body-wrap">
       <div class="slide-header">
         <p class="kicker">Vertical Connectivity System</p>
-        <h2>The Current — The Central Staircase</h2>
+        <h2>The Current</h2>
         <p class="lede">Transforming the primary stairwell into a dynamic, wellness-driven architectural spine connecting all five floors.</p>
       </div>
 
