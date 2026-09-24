@@ -135,23 +135,22 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* Fully Viewport-Fluid Container across ALL Slides */
+  /* Natural Top-Aligned Content Flow across ALL Inner Slides */
   .body-wrap {
     position: relative;
     z-index: 1;
     width: 100%;
     max-width: none;
-    min-height: calc(100vh - clamp(110px, 13vh, 150px));
     margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   /* Header Anchor Section - Consistent Baseline across slides */
   .slide-header {
     width: 100%;
-    margin-bottom: clamp(24px, 3vw, 40px);
+    margin-bottom: clamp(20px, 3vh, 32px);
   }
 
   .kicker {
@@ -203,13 +202,14 @@
     font-weight: 400;
   }
 
-  /* Cover Slide Layout */
+  /* Cover Slide Layout - Pinned to Full Viewport Height */
   .cover-layout {
-    min-height: 68vh;
+    min-height: calc(100vh - clamp(110px, 13vh, 150px));
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: clamp(24px, 4vw, 48px);
+    padding-top: clamp(24px, 4vh, 48px);
   }
 
   .cover-main-block h1 {
@@ -221,9 +221,9 @@
 
   .cover-meta-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 28px;
-    margin-top: 48px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(20px, 3vw, 40px);
+    margin-top: auto;
     padding-top: 24px;
     border-top: 1px solid #22252e;
     max-width: none;
@@ -247,8 +247,8 @@
   .pillar-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-top: 10px;
+    gap: clamp(24px, 3vw, 44px);
+    margin-top: 0;
   }
 
   .pillar-card {
@@ -360,8 +360,8 @@
   .scope-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 24px;
-    margin-top: 10px;
+    gap: clamp(16px, 2vw, 28px);
+    margin-top: 0;
   }
 
   .scope-col {
@@ -410,9 +410,9 @@
   .floor-content-grid {
     display: grid;
     grid-template-columns: 1.15fr 1fr;
-    gap: clamp(36px, 6vw, 84px);
+    gap: clamp(36px, 5vw, 84px);
     align-items: start;
-    margin-top: 8px;
+    margin-top: 0;
   }
 
   .theme-statement-block {
@@ -573,8 +573,8 @@
   /* Room Directory Grid (Clean Architectural Plaques) */
   .rooms-grid {
     display: grid;
-    gap: 24px;
-    margin-top: 10px;
+    gap: clamp(20px, 2.5vw, 32px);
+    margin-top: 0;
   }
 
   .rooms-grid.cols-4 {
@@ -632,9 +632,9 @@
   .stair-content-grid {
     display: grid;
     grid-template-columns: 1fr 1.15fr;
-    gap: clamp(36px, 6vw, 84px);
+    gap: clamp(36px, 5vw, 84px);
     align-items: start;
-    margin-top: 10px;
+    margin-top: 0;
   }
 
   .stair-narrative-block {
@@ -677,10 +677,9 @@
     display: grid;
     grid-template-columns: 1.65fr 1fr;
     gap: clamp(32px, 4vw, 72px);
-    align-items: center;
-    margin-top: 10px;
+    align-items: start;
+    margin-top: 0;
     width: 100%;
-    flex: 1;
   }
 
   .mockup-exhibition-stage {
