@@ -6,7 +6,7 @@
 <title>The Circuit: Workplace Identity</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Poppins:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #111111;
@@ -18,7 +18,8 @@
     --line-hairline: #f0f2f5;
     --mute: #555555;
     --mute-light: #888888;
-    --serif: 'Fraunces', Georgia, serif;
+    --heading: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --serif: var(--heading);
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --mono: 'JetBrains Mono', SFMono-Regular, Menlo, monospace;
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -122,10 +123,10 @@
     position: absolute;
     top: clamp(24px, 3.5vw, 44px);
     right: clamp(32px, 5.5vw, 84px);
-    font-family: var(--serif);
+    font-family: var(--mono);
     font-size: clamp(60px, 9vw, 130px);
     color: #f1f3f5;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 0.9;
     z-index: 0;
     pointer-events: none;
@@ -162,21 +163,21 @@
   }
 
   h1 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: clamp(36px, 4.2vw, 76px);
-    line-height: 1.05;
+    font-family: var(--heading);
+    font-weight: 700;
+    font-size: clamp(38px, 4.4vw, 78px);
+    line-height: 1.08;
     letter-spacing: -0.025em;
     margin-bottom: 16px;
     color: var(--ink);
   }
 
   h2 {
-    font-family: var(--serif);
-    font-weight: 500;
+    font-family: var(--heading);
+    font-weight: 700;
     font-size: clamp(28px, 3vw, 52px);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
     margin-bottom: 12px;
     color: var(--ink);
   }
@@ -258,10 +259,11 @@
   }
 
   .pillar-card h3 {
-    font-family: var(--serif);
-    font-size: clamp(22px, 1.8vw, 30px);
-    font-weight: 500;
-    line-height: 1.25;
+    font-family: var(--heading);
+    font-size: clamp(20px, 1.6vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
     color: var(--ink);
   }
 
@@ -296,9 +298,11 @@
   }
 
   .circuit-name {
-    font-family: var(--serif);
-    font-size: clamp(26px, 2.2vw, 36px);
-    font-weight: 500;
+    font-family: var(--heading);
+    font-size: clamp(24px, 2vw, 34px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
     color: var(--ink);
   }
 
@@ -326,9 +330,10 @@
   }
 
   .spine-badge {
-    font-family: var(--serif);
-    font-size: 15px;
-    font-weight: 500;
+    font-family: var(--heading);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     background: var(--ink);
     color: #ffffff;
     padding: 6px 16px;
@@ -368,10 +373,11 @@
   }
 
   .scope-title {
-    font-family: var(--serif);
+    font-family: var(--heading);
     font-size: 19px;
-    font-weight: 500;
-    line-height: 1.4;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
     margin-bottom: 8px;
     color: var(--ink);
   }
@@ -408,14 +414,14 @@
   }
 
   .theme-quote {
-    font-family: var(--serif);
-    font-size: clamp(24px, 2.5vw, 36px);
-    font-weight: 400;
-    font-style: italic;
-    line-height: 1.38;
+    font-family: var(--heading);
+    font-size: clamp(24px, 2.3vw, 34px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.35;
     color: var(--ink);
-    border-left: 2px solid var(--ink);
-    padding-left: 18px;
+    border-left: 3px solid var(--ink);
+    padding-left: 20px;
   }
 
   .theme-detail-section {
@@ -593,11 +599,12 @@
   }
 
   .room-name {
-    font-family: var(--serif);
-    font-size: 24px;
-    font-weight: 500;
+    font-family: var(--heading);
+    font-size: clamp(22px, 1.8vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
     color: var(--ink);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     line-height: 1.2;
   }
 
@@ -646,9 +653,10 @@
   }
 
   .stair-level-name {
-    font-family: var(--serif);
+    font-family: var(--heading);
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     color: var(--ink);
   }
 
@@ -963,9 +971,10 @@
   }
 
   .drawer-title {
-    font-family: var(--serif);
+    font-family: var(--heading);
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   .drawer-close {
@@ -1695,7 +1704,7 @@
         <!-- Right Column: Subtle Palette -->
         <div class="brand-palette-section">
           <div class="brand-logo-showcase" style="border-bottom: 1px solid var(--line-subtle);">
-            <span style="font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--ink);">Executive & Client Governance</span>
+            <span style="font-family: var(--heading); font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);">Executive & Client Governance</span>
           </div>
 
           <p class="palette-subhead">Neutral Base • Subtle Orange + Teal Blend on Board Room Signature Wall</p>
@@ -1835,7 +1844,7 @@
         </div>
 
         <div class="mockup-spec-sheet">
-          <h3 style="font-family: var(--serif); font-size: 26px; font-weight: 500; margin-bottom: 12px; color: var(--ink);">Reception Welcome Mural</h3>
+          <h3 style="font-family: var(--heading); font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; color: var(--ink);">Reception Welcome Mural</h3>
           <p style="font-size: 14.5px; color: var(--mute); line-height: 1.6; margin-bottom: 18px;">Combines high-contrast typography with Workforce247 visual identity. Positions "The Origin" as the foundational touchpoint of the entire building.</p>
 
           <div class="spec-table">
@@ -1868,7 +1877,7 @@
         </div>
 
         <div class="mockup-spec-sheet">
-          <h3 style="font-family: var(--serif); font-size: 26px; font-weight: 500; margin-bottom: 12px; color: var(--ink);">Meeting Suite Manifestation</h3>
+          <h3 style="font-family: var(--heading); font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; color: var(--ink);">Meeting Suite Manifestation</h3>
           <p style="font-size: 14.5px; color: var(--mute); line-height: 1.6; margin-bottom: 18px;">Provides comfortable visual privacy for confidential interviews in The Discover and The Thrive, while maintaining full daylight transmission across interior corridors.</p>
 
           <div class="spec-table">
@@ -1901,7 +1910,7 @@
         </div>
 
         <div class="mockup-spec-sheet">
-          <h3 style="font-family: var(--serif); font-size: 26px; font-weight: 500; margin-bottom: 12px; color: var(--ink);">Ignite Landing Treatment</h3>
+          <h3 style="font-family: var(--heading); font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; color: var(--ink);">Ignite Landing Treatment</h3>
           <p style="font-size: 14.5px; color: var(--mute); line-height: 1.6; margin-bottom: 18px;">Vibrant Kitchen365 brand palette marks the physical arrival at the product engineering floor. Diagonal typographic linework builds upward momentum.</p>
 
           <div class="spec-table">
@@ -1934,7 +1943,7 @@
         </div>
 
         <div class="mockup-spec-sheet">
-          <h3 style="font-family: var(--serif); font-size: 26px; font-weight: 500; margin-bottom: 12px; color: var(--ink);">Acoustic Pillar Artwork</h3>
+          <h3 style="font-family: var(--heading); font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; color: var(--ink);">Acoustic Pillar Artwork</h3>
           <p style="font-size: 14.5px; color: var(--mute); line-height: 1.6; margin-bottom: 18px;">Softens open-office acoustics while establishing an inspiring typographic rhythm across developer and marketing pods in The Nexus.</p>
 
           <div class="spec-table">
@@ -1967,7 +1976,7 @@
         </div>
 
         <div class="mockup-spec-sheet">
-          <h3 style="font-family: var(--serif); font-size: 26px; font-weight: 500; margin-bottom: 12px; color: var(--ink);">Calling Pod Brand Graphic</h3>
+          <h3 style="font-family: var(--heading); font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; color: var(--ink);">Calling Pod Brand Graphic</h3>
           <p style="font-size: 14.5px; color: var(--mute); line-height: 1.6; margin-bottom: 18px;">Clean, paired typography (<em>"Innovate / Elevate"</em>) provides an intimate, distraction-free environment for video calls with global partners.</p>
 
           <div class="spec-table">
