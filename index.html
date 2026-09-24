@@ -685,15 +685,11 @@
 
   .mockup-exhibition-stage {
     position: relative;
-    border-radius: 6px;
-    overflow: hidden;
-    background: #000000;
-    border: 1px solid var(--line-subtle);
-    box-shadow: 0 10px 32px rgba(0,0,0,0.08);
-    aspect-ratio: 16/10;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
     width: 100%;
-    height: 100%;
-    max-height: calc(100vh - clamp(200px, 24vh, 260px));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -701,14 +697,20 @@
   }
 
   .mockup-exhibition-stage img {
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100vh - clamp(180px, 22vh, 240px));
     object-fit: contain;
-    transition: transform 0.25s ease;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
   .mockup-exhibition-stage:hover img {
     transform: scale(1.015);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
   }
 
   .zoom-pill {
@@ -1348,17 +1350,14 @@
           <div class="theme-quote">"The starting point, shared by everyone."</div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Why This Name</span>
             <p class="theme-section-body">This floor belongs to no single brand: common ground for everyone (Reception, HR, Cafeteria, Gaming Zone, and Friday activities). "Origin" is also a real coordinate and coding term for "the starting point" — an intentional double meaning for a company built on software.</p>
           </div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">What It Covers & Reflects</span>
             <p class="theme-section-body">Shared space for the whole building; where every employee's journey with the company technically begins (HR, hiring, onboarding).</p>
           </div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Visual Reference Concept</span>
             <p class="theme-section-body">Team-building and "coming together" language, with phrases and imagery around collaboration, arrival, and shared ground. Casual, warm photography in the cafeteria and gaming zone, distinctly separated from the more composed reception area.</p>
           </div>
         </div>
@@ -1413,28 +1412,24 @@
 
       <div class="rooms-grid cols-4">
         <div class="room-card">
-          <div class="room-tag">TA CABIN</div>
           <div class="room-name">The Discover</div>
           <div class="room-function">Finding People</div>
           <p class="room-desc">Dedicated space for talent acquisition and prospective candidates taking their initial step into the company.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">HR OPS CABIN</div>
           <div class="room-name">The Thrive</div>
           <div class="room-function">Supporting People</div>
           <p class="room-desc">People operations hub focused on team member development, ongoing support, and coaching.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">CONF ROOM 1</div>
           <div class="room-name">The Base</div>
           <div class="room-function">The Starting Point Everyone Needs</div>
           <p class="room-desc">Where conversations begin. The central collaborative room for arrivals, first meetings, and initial syncs.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">CONF ROOM 2</div>
           <div class="room-name">The Root</div>
           <div class="room-function">Where You Settle In & Take Hold</div>
           <p class="room-desc">Where conversations settle in and take hold. Focused room for deeper dialogues, alignment, and grounded discussions.</p>
@@ -1466,17 +1461,14 @@
           <div class="theme-quote">"The moment that growth starts."</div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Why This Name</span>
             <p class="theme-section-body">Kitchen365 builds the software that helps an entire industry grow. "Ignite" is the moment that growth starts. It ties naturally to the orange palette without any literal cabinetry reference.</p>
           </div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">What It Covers & Reflects</span>
             <p class="theme-section-body">Kitchen365's open seating and product teams; the floor receives full environmental design investment across pillars, murals, and collaborative spaces.</p>
           </div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Visual Reference Concept</span>
             <p class="theme-section-body">Growth and momentum idioms, with language and imagery about small beginnings becoming something substantial. Warm, glowing gradient abstraction as the visual family (focusing on color and energetic warmth, not literal fire).</p>
           </div>
         </div>
@@ -1531,14 +1523,12 @@
 
       <div class="rooms-grid cols-2">
         <div class="room-card" style="padding-top: 24px;">
-          <div class="room-tag">CONF ROOM 1</div>
           <div class="room-name">The Kindle</div>
           <div class="room-function">The Spark That Starts Something</div>
           <p class="room-desc" style="font-size: 15px; line-height: 1.6;">The spark that starts something. Whiteboard-intensive ideation suite where early concepts and user journeys are first ignited.</p>
         </div>
 
         <div class="room-card" style="padding-top: 24px;">
-          <div class="room-tag">CONF ROOM 2</div>
           <div class="room-name">The Forge</div>
           <div class="room-function">Shaping & Building That Follows</div>
           <p class="room-desc" style="font-size: 15px; line-height: 1.6;">The shaping and building that follows the spark. The main conference workshop where software releases and solutions are forged.</p>
@@ -1570,17 +1560,14 @@
           <div class="theme-quote">"The network connection point where everything scales."</div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Why This Name</span>
             <p class="theme-section-body">CommercePundit is AI-led ecommerce: "Nexus" is a genuine network and connection-point term, fitting without being a generic buzzword. One unified identity spans both floors since it is one continuous team.</p>
           </div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">What It Covers & Reflects</span>
             <p class="theme-section-body">CommercePundit's full floor treatment across both levels (2<sup>nd</sup> & 3<sup>rd</sup>), establishing continuous operational identity.</p>
           </div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Visual Reference Concept</span>
             <p class="theme-section-body">Coding culture and hustle-adjacent language: terminal and monospace typography, developer in-jokes, and an "always shipping" energy. This is the floor where the tech-forward tone comes through most distinctly.</p>
           </div>
         </div>
@@ -1651,49 +1638,42 @@
 
       <div class="rooms-grid cols-4">
         <div class="room-card">
-          <div class="room-tag">2<sup>nd</sup> FL • CONF 1</div>
           <div class="room-name">The Node</div>
           <div class="room-function">A Single Connection Point</div>
           <p class="room-desc">Focused space for 2–3 person engineering syncs and architectural checkpoints.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">2<sup>nd</sup> FL • CONF 2</div>
           <div class="room-name">The Link</div>
           <div class="room-function">Connection Between Two Points</div>
           <p class="room-desc">Where ideas connect. Collaborative space linking tech architecture with client design.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">2<sup>nd</sup> FL • SERVER</div>
           <div class="room-name">The Core</div>
           <div class="room-function">The Center of the Network</div>
           <p class="room-desc">The center of the network. Technological heartbeat and server infrastructure powering operations.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">3<sup>rd</sup> FL • CONF 1</div>
           <div class="room-name">The Path</div>
           <div class="room-function">The Route Across Network</div>
           <p class="room-desc">Strategic planning suite mapping out technical milestones and sprint roadmaps.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">3<sup>rd</sup> FL • CONF 2</div>
           <div class="room-name">The Grid</div>
           <div class="room-function">A Structured Network</div>
           <p class="room-desc">Structured, connected thinking. Main multi-team conference room for scrums and reviews.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">3<sup>rd</sup> FL • CONF 3</div>
           <div class="room-name">The Mesh</div>
           <div class="room-function">An Interwoven Network</div>
           <p class="room-desc">Where teams interweave. Relaxed collaborative lounge for cross-functional exchange.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">3<sup>rd</sup> FL • CONF 4</div>
           <div class="room-name">The Loop</div>
           <div class="room-function">Coming Full Circle</div>
           <p class="room-desc">Where the network comes full circle. Dedicated post-launch retrospective and feedback suite.</p>
@@ -1725,17 +1705,14 @@
           <div class="theme-quote">"Where the ship is steered, and colors quietly meet."</div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Why This Name</span>
             <p class="theme-section-body">Leadership floor: "The Bridge" is literally where a ship is steered from (CEO cabin, Director cabin, board room), and narratively where Ignite (orange) and Nexus (teal) quietly meet.</p>
           </div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">What It Covers & Reflects</span>
             <p class="theme-section-body">CEO cabin, Director cabin, the Board Room, and 2 conference suites. Primarily used for executive governance, interviews, visitors, and vendors: light-touch and understated, not heavily designed.</p>
           </div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Visual Reference Concept</span>
             <p class="theme-section-body">Leadership and vision language: steady, forward-looking, and understated. Skyline and horizon-toned imagery as the visual family, keeping the aesthetic quiet and commanding.</p>
           </div>
         </div>
@@ -1790,21 +1767,18 @@
 
       <div class="rooms-grid cols-3">
         <div class="room-card" style="padding-top: 24px;">
-          <div class="room-tag">BOARD ROOM</div>
           <div class="room-name">The Atlanta</div>
           <div class="room-function">Executive Boardroom</div>
           <p class="room-desc" style="font-size: 14.5px; line-height: 1.6;">Kept as the one intentional exception, tied to the actual HQ. Flagship boardroom for high-stakes governance and milestone decisions.</p>
         </div>
 
         <div class="room-card" style="padding-top: 24px;">
-          <div class="room-tag">CONF ROOM 1</div>
           <div class="room-name">The Anchor</div>
           <div class="room-function">Steady Ground for Big Decisions</div>
           <p class="room-desc" style="font-size: 14.5px; line-height: 1.6;">Steady ground for big decisions. Leadership suite providing calm, confidential clarity for strategy and governance.</p>
         </div>
 
         <div class="room-card" style="padding-top: 24px;">
-          <div class="room-tag">CONF ROOM 2</div>
           <div class="room-name">The Horizon</div>
           <div class="room-function">A View Toward What's Next</div>
           <p class="room-desc" style="font-size: 14.5px; line-height: 1.6;">A view toward what's next. Premium suite looking outward toward global market expansion, partnerships, and future horizons.</p>
@@ -1836,12 +1810,10 @@
           <div class="theme-quote">"The living conduit carrying energy between floors."</div>
           
           <div class="theme-detail-section">
-            <span class="theme-section-label">Spatial Purpose</span>
             <p class="theme-section-body">Rather than an ignored utility zone, the stairwell becomes an engaging journey. Team members experience the physical flow of The Circuit every time they move between meetings.</p>
           </div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Wellness Step-Counter</span>
             <p class="theme-section-body">Along the stair skirting runs an active step-count and calorie milestone metric <em>("Step 84 • Climbing Higher • 12.8 kcal burned")</em> encouraging active stair usage over elevator trips.</p>
           </div>
         </div>
@@ -1892,10 +1864,9 @@
           <p style="font-size: 14.5px; color: var(--mute); line-height: 1.6; margin-bottom: 18px;">Combines high-contrast typography with workforce-centered visual identity. Positions "The Origin" as the foundational touchpoint of the entire building.</p>
 
           <div class="spec-table">
-            <div class="spec-entry"><span class="entry-label">Substrate</span><span class="entry-val">Matte Cast Wall Vinyl (Low-VOC adhesive)</span></div>
-            <div class="spec-entry"><span class="entry-label">Location</span><span class="entry-val">Ground Floor Entryway & Cafeteria Corridor</span></div>
-            <div class="spec-entry"><span class="entry-label">Palette</span><span class="entry-val">Workforce Ocean Blue, Navy, Black & White</span></div>
-            <div class="spec-entry"><span class="entry-label">Objective</span><span class="entry-val">Immediate brand orientation & welcoming energy</span></div>
+            <div class="spec-entry"><span class="entry-label">Floor</span><span class="entry-val">Ground Floor (The Origin)</span></div>
+            <div class="spec-entry"><span class="entry-label">Location</span><span class="entry-val">Entryway Corridor & Cafeteria Wall</span></div>
+            <div class="spec-entry"><span class="entry-label">Design Concept</span><span class="entry-val">Large-format typography celebrating teamwork and arrival, anchoring the ground floor as the foundational shared space.</span></div>
           </div>
         </div>
       </div>
@@ -1926,10 +1897,9 @@
           <p style="font-size: 14.5px; color: var(--mute); line-height: 1.6; margin-bottom: 18px;">Provides comfortable visual privacy for confidential interviews in The Discover and The Thrive, while maintaining full daylight transmission across interior corridors.</p>
 
           <div class="spec-table">
-            <div class="spec-entry"><span class="entry-label">Substrate</span><span class="entry-val">3M Dusted Crystal Architectural Film</span></div>
+            <div class="spec-entry"><span class="entry-label">Floor</span><span class="entry-val">Ground Floor (The Origin)</span></div>
             <div class="spec-entry"><span class="entry-label">Location</span><span class="entry-val">The Discover & The Thrive Conference Cabins</span></div>
-            <div class="spec-entry"><span class="entry-label">Pattern</span><span class="entry-val">Minimalist Horizontal Manifestation Band</span></div>
-            <div class="spec-entry"><span class="entry-label">Objective</span><span class="entry-val">Interview privacy with ambient light transmission</span></div>
+            <div class="spec-entry"><span class="entry-label">Design Concept</span><span class="entry-val">All assigned conference rooms and cabins will feature signature color accents based on the floor theme (Workforce blue on Ground, Kitchen orange on 1<sup>st</sup>, CommercePundit teal on 2<sup>nd</sup> & 3<sup>rd</sup>). Cabins that are unassigned or general-purpose will feature default frosted white manifestation.</span></div>
           </div>
         </div>
       </div>
@@ -1960,10 +1930,9 @@
           <p style="font-size: 14.5px; color: var(--mute); line-height: 1.6; margin-bottom: 18px;">Vibrant Kitchen365 brand palette marks the physical arrival at the product engineering floor. Diagonal typographic linework builds upward momentum.</p>
 
           <div class="spec-table">
-            <div class="spec-entry"><span class="entry-label">Substrate</span><span class="entry-val">Direct Architectural Wall Vinyl</span></div>
+            <div class="spec-entry"><span class="entry-label">Floor</span><span class="entry-val">1<sup>st</sup> Floor (The Ignite)</span></div>
             <div class="spec-entry"><span class="entry-label">Location</span><span class="entry-val">1<sup>st</sup> Floor Stairwell Landing & Doorway</span></div>
-            <div class="spec-entry"><span class="entry-label">Palette</span><span class="entry-val">Kitchen Orange (#FF7A29) & Charcoal</span></div>
-            <div class="spec-entry"><span class="entry-label">Objective</span><span class="entry-val">Dynamic transitional orientation between floors</span></div>
+            <div class="spec-entry"><span class="entry-label">Design Concept</span><span class="entry-val">Dynamic Kitchen365 brand palette marks the physical arrival at the product engineering floor, with upward diagonal linework building energy.</span></div>
           </div>
         </div>
       </div>
@@ -1994,10 +1963,9 @@
           <p style="font-size: 14.5px; color: var(--mute); line-height: 1.6; margin-bottom: 18px;">Softens open-office acoustics while establishing an inspiring typographic rhythm across developer and marketing pods in The Nexus.</p>
 
           <div class="spec-table">
-            <div class="spec-entry"><span class="entry-label">Substrate</span><span class="entry-val">Heavyweight Stretched Fabric + Acoustic Core</span></div>
-            <div class="spec-entry"><span class="entry-label">Location</span><span class="entry-val">The Nexus Open Engineering & Marketing Bays</span></div>
-            <div class="spec-entry"><span class="entry-label">Palette</span><span class="entry-val">Concrete (#F2F2F2), White & Black</span></div>
-            <div class="spec-entry"><span class="entry-label">Objective</span><span class="entry-val">Sound absorption & inspiring typographic cadence</span></div>
+            <div class="spec-entry"><span class="entry-label">Floor</span><span class="entry-val">2<sup>nd</sup> Floor (The Nexus)</span></div>
+            <div class="spec-entry"><span class="entry-label">Location</span><span class="entry-val">Open Engineering & Marketing Bay Columns</span></div>
+            <div class="spec-entry"><span class="entry-label">Design Concept</span><span class="entry-val">Gallery-wrapped acoustic canvas softening open-office acoustics while establishing an inspiring typographic rhythm across developer pods.</span></div>
           </div>
         </div>
       </div>
@@ -2028,10 +1996,9 @@
           <p style="font-size: 14.5px; color: var(--mute); line-height: 1.6; margin-bottom: 18px;">Clean, paired typography (<em>"Innovate / Elevate"</em>) provides an intimate, distraction-free environment for video calls with global partners.</p>
 
           <div class="spec-table">
-            <div class="spec-entry"><span class="entry-label">Substrate</span><span class="entry-val">Precision Matte Cut Decals on Felt Backing</span></div>
-            <div class="spec-entry"><span class="entry-label">Location</span><span class="entry-val">Floors 2<sup>nd</sup> & 3<sup>rd</sup> Individual Calling Pods</span></div>
-            <div class="spec-entry"><span class="entry-label">Palette</span><span class="entry-val">Sherpa Blue (#005463) & Bittersweet (#FC766A)</span></div>
-            <div class="spec-entry"><span class="entry-label">Objective</span><span class="entry-val">Compact private environment for high-focus calls</span></div>
+            <div class="spec-entry"><span class="entry-label">Floor</span><span class="entry-val">2<sup>nd</sup> & 3<sup>rd</sup> Floors (The Nexus)</span></div>
+            <div class="spec-entry"><span class="entry-label">Location</span><span class="entry-val">Quiet Focus Booths & Individual Calling Pods</span></div>
+            <div class="spec-entry"><span class="entry-label">Design Concept</span><span class="entry-val">Clean paired typography (<em>"Innovate / Elevate"</em>) on felt backing, creating an intimate, distraction-free environment for video calls.</span></div>
           </div>
         </div>
       </div>
