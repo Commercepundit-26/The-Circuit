@@ -8,8 +8,8 @@ An interactive architectural presentation and environmental graphic design syste
 
 ### Building Narrative & Floors
 
-1. **Ground Floor — The Origin** (Workforce 24/7)
-   - *Colors*: Workforce Blue (`#1E5FFF`), Deep Navy (`#0A1128`), Pure White (`#FFFFFF`)
+1. **Ground Floor — The Origin** (Workforce247)
+   - *Colors*: Workforce247 Blue (`#1E5FFF`), Deep Navy (`#0A1128`), Pure White (`#FFFFFF`)
    - *Rooms*: The Discover, The Thrive, The Base, The Root
    - *Scope*: Reception welcome wall vinyl, HR interview frosted manifestation
 

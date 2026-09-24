@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>The Circuit — Workplace Identity</title>
+<title>The Circuit: Workplace Identity</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -97,10 +97,6 @@
     color: #8c909a;
   }
 
-  .slide.slide-dark .kicker::before {
-    background: #ffffff;
-  }
-
   .slide.slide-dark h1,
   .slide.slide-dark h2 {
     color: #ffffff;
@@ -163,17 +159,6 @@
     margin-bottom: 12px;
     display: block;
     line-height: 1.4;
-  }
-
-  .kicker::before {
-    content: "";
-    display: inline-block;
-    vertical-align: middle;
-    width: 16px;
-    height: 1.5px;
-    background: var(--ink);
-    margin-right: 8px;
-    margin-bottom: 2px;
   }
 
   h1 {
@@ -359,8 +344,8 @@
   /* Slide 04: Scope Grid */
   .scope-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: clamp(16px, 2vw, 28px);
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(20px, 2.5vw, 36px);
     margin-top: 0;
   }
 
@@ -769,15 +754,12 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: clamp(24px, 4vh, 48px);
   }
 
   .closing-main-block {
-    margin-top: auto;
-    margin-bottom: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -786,16 +768,6 @@
   .closing-layout h1 {
     font-size: clamp(48px, 6.5vw, 88px);
     margin-bottom: 20px;
-  }
-
-  .closing-tagline {
-    font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #8c909a;
-    padding-bottom: 12px;
   }
 
   /* Fixed Navigation Dock */
@@ -1302,7 +1274,7 @@
       <div class="slide-header">
         <p class="kicker">Implementation Deliverables</p>
         <h2>Scope at a Glance</h2>
-        <p class="lede">Five architectural touchpoints deployed consistently across all levels and the central vertical stairwell.</p>
+        <p class="lede">Four architectural touchpoints deployed consistently across all levels and the central vertical stairwell.</p>
       </div>
 
       <div class="scope-grid">
@@ -1333,13 +1305,6 @@
           <p class="scope-detail">Landing gradient walls transitioning between floor palettes, with a running step-counter.</p>
           <div class="scope-target">4 Mid Landings</div>
         </div>
-
-        <div class="scope-col">
-          <div class="scope-index">Wayfinding Plaques</div>
-          <h3 class="scope-title">Wayfinding Plaques</h3>
-          <p class="scope-detail">Laser-etched architectural door plates unifying every room under "The" nomenclature.</p>
-          <div class="scope-target">Every Door</div>
-        </div>
       </div>
     </div>
   </section>
@@ -1360,7 +1325,7 @@
           <div class="theme-quote">"The starting point, shared by everyone."</div>
 
           <div class="theme-detail-section">
-            <p class="theme-section-body">This floor belongs to no single brand: common ground for everyone (Reception, HR, Cafeteria, Gaming Zone, and Friday activities). "Origin" is also a real coordinate and coding term for "the starting point" — an intentional double meaning for a company built on software.</p>
+            <p class="theme-section-body">This floor belongs to no single brand: common ground for everyone (Reception, HR, Cafeteria, Gaming Zone, and Friday activities). "Origin" is also a real coordinate and coding term for "the starting point", an intentional double meaning for a company built on software.</p>
           </div>
 
           <div class="theme-detail-section">
@@ -1375,25 +1340,25 @@
         <!-- Right Column: Brand SVG Logo & Color Strip -->
         <div class="brand-palette-section">
           <div class="brand-logo-showcase">
-            <img src="Brand Logos/WF247_Horizontal-3Color.svg" alt="Workforce 24/7 Logo" />
+            <img src="Brand Logos/WF247_Horizontal-3Color.svg" alt="Workforce247 Logo" />
           </div>
 
           
 
           <div class="swatch-strip cols-4">
-            <div class="swatch-item" onclick="copyColor('#1B75BB', 'Workforce Ocean Blue')">
+            <div class="swatch-item" onclick="copyColor('#1B75BB', 'Workforce247 Ocean Blue')">
               <div class="swatch-bar" style="background: #1B75BB;"></div>
               <div class="swatch-label">Ocean Blue</div>
               <div class="swatch-hex">#1B75BB</div>
             </div>
 
-            <div class="swatch-item" onclick="copyColor('#28C3F3', 'Workforce Sky Cyan')">
+            <div class="swatch-item" onclick="copyColor('#28C3F3', 'Workforce247 Sky Cyan')">
               <div class="swatch-bar" style="background: #28C3F3;"></div>
               <div class="swatch-label">Sky Cyan</div>
               <div class="swatch-hex">#28C3F3</div>
             </div>
 
-            <div class="swatch-item" onclick="copyColor('#152E51', 'Workforce Midnight Navy')">
+            <div class="swatch-item" onclick="copyColor('#152E51', 'Workforce247 Midnight Navy')">
               <div class="swatch-bar" style="background: #152E51;"></div>
               <div class="swatch-label">Midnight Navy</div>
               <div class="swatch-hex">#152E51</div>
@@ -1693,7 +1658,7 @@
       <div class="small-story-bar" style="margin-top: 24px;">
         
         <div class="small-story-text">
-          Every name here comes from the same vocabulary — literal parts of how a network is described — so they read as one coherent architectural system rather than seven unrelated tech words.
+          Every name here comes from the same vocabulary, literal parts of how a network is described, so they read as one coherent architectural system rather than seven unrelated tech words.
         </div>
       </div>
     </div>
@@ -1843,14 +1808,14 @@
           </div>
           <div class="stair-level-row">
             <span class="stair-level-name">Ground &rarr; 1<sup>st</sup> Floor</span>
-            <span class="stair-level-palette">Workforce Blue &rarr; Kitchen Orange</span>
+            <span class="stair-level-palette">Workforce247 Blue &rarr; Kitchen Orange</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SLIDE 14: SAMPLE 01 — GROUND FLOOR WALL -->
+  <!-- SLIDE 14: SAMPLE 01: GROUND FLOOR WALL -->
   <section class="slide" data-slide="14">
     <span class="ghost-num">14</span>
     <div class="body-wrap">
@@ -1871,7 +1836,7 @@
 
         <div class="mockup-spec-sheet">
           <h3 style="font-family: var(--serif); font-size: 26px; font-weight: 500; margin-bottom: 12px; color: var(--ink);">Reception Welcome Mural</h3>
-          <p style="font-size: 14.5px; color: var(--mute); line-height: 1.6; margin-bottom: 18px;">Combines high-contrast typography with workforce-centered visual identity. Positions "The Origin" as the foundational touchpoint of the entire building.</p>
+          <p style="font-size: 14.5px; color: var(--mute); line-height: 1.6; margin-bottom: 18px;">Combines high-contrast typography with Workforce247 visual identity. Positions "The Origin" as the foundational touchpoint of the entire building.</p>
 
           <div class="spec-table">
             <div class="spec-entry"><span class="entry-label">Floor</span><span class="entry-val">Ground Floor (The Origin)</span></div>
@@ -1883,7 +1848,7 @@
     </div>
   </section>
 
-  <!-- SLIDE 15: SAMPLE 02 — GROUND FLOOR FROST -->
+  <!-- SLIDE 15: SAMPLE 02: GROUND FLOOR FROST -->
   <section class="slide" data-slide="15">
     <span class="ghost-num">15</span>
     <div class="body-wrap">
@@ -1909,14 +1874,14 @@
           <div class="spec-table">
             <div class="spec-entry"><span class="entry-label">Floor</span><span class="entry-val">Ground Floor (The Origin)</span></div>
             <div class="spec-entry"><span class="entry-label">Location</span><span class="entry-val">The Discover & The Thrive Conference Cabins</span></div>
-            <div class="spec-entry"><span class="entry-label">Design Concept</span><span class="entry-val">All assigned conference rooms and cabins will feature signature color accents based on the floor theme (Workforce blue on Ground, Kitchen orange on 1<sup>st</sup>, CommercePundit teal on 2<sup>nd</sup> & 3<sup>rd</sup>). Cabins that are unassigned or general-purpose will feature default frosted white manifestation.</span></div>
+            <div class="spec-entry"><span class="entry-label">Design Concept</span><span class="entry-val">All assigned conference rooms and cabins will feature signature color accents based on the floor theme (Workforce247 blue on Ground, Kitchen orange on 1<sup>st</sup>, CommercePundit teal on 2<sup>nd</sup> & 3<sup>rd</sup>). Cabins that are unassigned or general-purpose will feature default frosted white manifestation.</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SLIDE 16: SAMPLE 03 — 1ST FLOOR STAIRCASE -->
+  <!-- SLIDE 16: SAMPLE 03: 1ST FLOOR STAIRCASE -->
   <section class="slide" data-slide="16">
     <span class="ghost-num">16</span>
     <div class="body-wrap">
@@ -1949,7 +1914,7 @@
     </div>
   </section>
 
-  <!-- SLIDE 17: SAMPLE 04 — 2ND FLOOR CANVAS -->
+  <!-- SLIDE 17: SAMPLE 04: 2ND FLOOR CANVAS -->
   <section class="slide" data-slide="17">
     <span class="ghost-num">17</span>
     <div class="body-wrap">
@@ -1982,7 +1947,7 @@
     </div>
   </section>
 
-  <!-- SLIDE 18: SAMPLE 05 — 2ND FLOOR BOOTH -->
+  <!-- SLIDE 18: SAMPLE 05: 2ND FLOOR BOOTH -->
   <section class="slide" data-slide="18">
     <span class="ghost-num">18</span>
     <div class="body-wrap">
@@ -2024,7 +1989,6 @@
         <h1>Thoughts & Perspectives</h1>
         <p class="lede" style="text-align: center;">A coherent visual design and spatial naming framework to bring identity, pride, and clear orientation to the workplace.</p>
       </div>
-      <div class="closing-tagline">Thank You • The Circuit</div>
     </div>
   </section>
 
@@ -2123,7 +2087,7 @@ const slideTitles = [
   "01 • Cover: The Circuit",
   "02 • Why Environmental Identity Matters",
   "03 • The Circuit: Building-Wide Narrative",
-  "04 • Scope at a Glance: 5 Deliverables",
+  "04 • Scope at a Glance: 4 Deliverables",
   "05 • Ground Floor: The Origin",
   "06 • Ground Floor: Meeting Spaces",
   "07 • 1st Floor: The Ignite",
