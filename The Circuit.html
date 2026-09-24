@@ -533,6 +533,44 @@
     margin-bottom: 6px;
   }
 
+
+  /* Small Story Callout Strip */
+  .small-story-bar {
+    margin-top: clamp(20px, 3vh, 32px);
+    padding: 14px 18px;
+    background: #fbfbfb;
+    border-left: 3px solid var(--ink);
+    border-radius: 0 4px 4px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 960px;
+  }
+
+  .small-story-badge {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    background: var(--ink);
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 1px;
+  }
+
+  .small-story-text {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--mute);
+  }
+
+  .small-story-text strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
   /* Room Directory Grid (Clean Architectural Plaques) */
   .rooms-grid {
     display: grid;
@@ -1112,9 +1150,14 @@
     <span class="ghost-num">01</span>
     <div class="body-wrap cover-layout">
       <div class="cover-main-block">
-        <div class="cover-pretitle">Workplace Identity & Environmental Design</div>
+        <div class="cover-pretitle">The Building Narrative</div>
         <h1>The Circuit</h1>
-        <p class="lede">A cohesive visual design and spatial naming framework connecting every floor into a unified narrative.</p>
+        <p class="lede" style="font-size: clamp(18px, 2vw, 24px); line-height: 1.5; color: #ffffff; max-width: 920px;">
+          <strong>Origin &rarr; Ignite &rarr; Nexus &rarr; The Bridge</strong>, connected by <strong>The Current</strong> (the staircase).
+        </p>
+        <p style="font-size: 15.5px; color: #9499a8; line-height: 1.6; max-width: 820px; margin-top: 10px;">
+          One story: you start at Origin, energy gets sparked at Ignite, it scales through Nexus, and gets steered from The Bridge.
+        </p>
       </div>
 
       <div class="cover-meta-grid">
@@ -1171,9 +1214,9 @@
     <span class="ghost-num">03</span>
     <div class="body-wrap">
       <div class="slide-header">
-        <p class="kicker">Building-Wide Narrative Flow</p>
+        <p class="kicker">The Building Narrative</p>
         <h2>The Circuit: One Continuous Story</h2>
-        <p class="lede">Rather than treating each floor in isolation, our environmental branding flows like a circuit from ground to crown.</p>
+        <p class="lede">One story: you start at Origin, energy gets sparked at Ignite, it scales through Nexus, and gets steered from The Bridge — connected by The Current.</p>
       </div>
 
       <div class="circuit-track">
@@ -1280,13 +1323,18 @@
           <div class="theme-quote">"The starting point, shared by everyone."</div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Why This Theme</span>
-            <p class="theme-section-body">This floor is the physical foundation and social gateway of the building. It houses Reception, HR & Talent Acquisition, the central Cafeteria, and the Gaming Zone. It is where every career journey starts.</p>
+            <span class="theme-section-label">Why This Name</span>
+            <p class="theme-section-body">This floor belongs to no single brand — it is common ground for everyone (Reception, HR, Cafeteria, Gaming Zone, and Friday activities). "Origin" is also a real coordinate and coding term for "the starting point" — an intentional double meaning for a company built on software.</p>
           </div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Spatial Atmosphere</span>
-            <p class="theme-section-body">Welcoming, communal, and grounded. Dynamic environmental graphics celebrating teamwork, foundational stability, and collective forward motion.</p>
+            <span class="theme-section-label">What It Covers & Reflects</span>
+            <p class="theme-section-body">Shared space for the whole building; where every employee's journey with the company technically begins (HR, hiring, onboarding).</p>
+          </div>
+
+          <div class="theme-detail-section">
+            <span class="theme-section-label">Visual Reference Concept</span>
+            <p class="theme-section-body">Team-building and "coming together" language — phrases and imagery around collaboration, arrival, and shared ground. Casual, warm photography in the cafeteria and gaming zone, distinctly separated from the more composed reception area.</p>
           </div>
         </div>
 
@@ -1296,7 +1344,7 @@
             <img src="Brand Logos/WF247_Horizontal-3Color.svg" alt="Workforce 24/7 Logo" />
           </div>
 
-          <p class="palette-subhead">Official Logo Color Palette (Click to Copy)</p>
+          <p class="palette-subhead">Neutral Base Throughout • Light Touch on 2 HR Cabins Only (Click to Copy)</p>
 
           <div class="swatch-strip cols-4">
             <div class="swatch-item" onclick="copyColor('#1B75BB', 'Workforce Ocean Blue')">
@@ -1339,36 +1387,43 @@
       <div class="slide-header">
         <p class="kicker">Ground Floor • Room Names</p>
         <h2>The Origin — Meeting Spaces</h2>
-        <p class="lede">Four foundational rooms named for talent discovery, continuous growth, and community collaboration.</p>
+        <p class="lede">Room names from one family: "Grounding & Growth" — arriving, finding footing, and growing from here.</p>
       </div>
 
       <div class="rooms-grid cols-4">
         <div class="room-card">
-          <div class="room-tag">RM G.01</div>
-          <div class="room-name">The Discover</div>
-          <div class="room-function">Interview & Talent Hub</div>
-          <p class="room-desc">Where new talent is found. Designed for prospective candidates taking their initial step into the company.</p>
+          <div class="room-tag">TA CABIN</div>
+          <div class="room-name">Discover</div>
+          <div class="room-function">Finding People</div>
+          <p class="room-desc">Dedicated space for talent acquisition and prospective candidates taking their initial step into the company.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">RM G.02</div>
-          <div class="room-name">The Thrive</div>
-          <div class="room-function">People Operations</div>
-          <p class="room-desc">Support that keeps people growing. HR operational cabin centered on team member development and coaching.</p>
+          <div class="room-tag">HR OPS CABIN</div>
+          <div class="room-name">Thrive</div>
+          <div class="room-function">Supporting People</div>
+          <p class="room-desc">People operations hub focused on team member development, ongoing support, and coaching.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">RM G.03</div>
-          <div class="room-name">The Base</div>
-          <div class="room-function">Meeting Commons</div>
-          <p class="room-desc">Where every conversation starts. The central collaborative hub for multi-team syncs and open dialogues.</p>
+          <div class="room-tag">CONF ROOM 1</div>
+          <div class="room-name">Base</div>
+          <div class="room-function">The Starting Point Everyone Needs</div>
+          <p class="room-desc">Where conversations begin. The central collaborative room for arrivals, first meetings, and initial syncs.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">RM G.04</div>
-          <div class="room-name">The Root</div>
-          <div class="room-function">Quiet 1-on-1 Cabin</div>
-          <p class="room-desc">Grounded space for focused conversations. Private sanctuary for confidential dialogues and deep personal alignment.</p>
+          <div class="room-tag">CONF ROOM 2</div>
+          <div class="room-name">Root</div>
+          <div class="room-function">Where You Settle In & Take Hold</div>
+          <p class="room-desc">Where conversations settle in and take hold. Focused room for deeper dialogues, alignment, and grounded discussions.</p>
+        </div>
+      </div>
+
+      <div class="small-story-bar">
+        <span class="small-story-badge">The Small Story</span>
+        <div class="small-story-text">
+          <strong>Base &rarr; Root:</strong> Base is where a conversation begins (interviews, first meetings, visitors walking in); Root is where it settles in and gets grounded (a more focused, longer discussion). One is arrival, the other is depth.
         </div>
       </div>
     </div>
@@ -1381,22 +1436,27 @@
       <div class="slide-header">
         <p class="kicker">1<sup>st</sup> Floor</p>
         <h2>The Ignite</h2>
-        <p class="lede">Naming the 1<sup>st</sup> Floor: Where growth starts into motion.</p>
+        <p class="lede">Naming the 1<sup>st</sup> Floor: Kitchen365 — The moment that growth starts.</p>
       </div>
 
       <div class="floor-content-grid">
         <!-- Left Column: Spatial Narrative -->
         <div class="theme-statement-block">
-          <div class="theme-quote">"Where growth starts into motion."</div>
+          <div class="theme-quote">"The moment that growth starts."</div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Why This Theme</span>
-            <p class="theme-section-body">The 1<sup>st</sup> level houses Kitchen365's product engineering, UI/UX designers, and developers. It represents the creative spark that transforms early concepts into scalable products.</p>
+            <span class="theme-section-label">Why This Name</span>
+            <p class="theme-section-body">Kitchen365 builds the software that helps an entire industry grow — "Ignite" is the moment that growth starts. It ties naturally to the orange palette without any literal cabinetry reference.</p>
           </div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Spatial Atmosphere</span>
-            <p class="theme-section-body">High-momentum, glowing warm gradients, and energetic sprint environments that foster rapid problem solving.</p>
+            <span class="theme-section-label">What It Covers & Reflects</span>
+            <p class="theme-section-body">Kitchen365's open seating and product teams; the floor receives full environmental design investment across pillars, murals, and collaborative spaces.</p>
+          </div>
+
+          <div class="theme-detail-section">
+            <span class="theme-section-label">Visual Reference Concept</span>
+            <p class="theme-section-body">Growth and momentum idioms — language and imagery about small beginnings becoming something substantial. Warm, glowing gradient abstraction as the visual family (focusing on color and energetic warmth, not literal fire).</p>
           </div>
         </div>
 
@@ -1449,22 +1509,29 @@
       <div class="slide-header">
         <p class="kicker">1<sup>st</sup> Floor • Room Names</p>
         <h2>The Ignite — Meeting Spaces</h2>
-        <p class="lede">Two high-velocity rooms named for product ideation and build momentum.</p>
+        <p class="lede">Room names from one sequential family: "Fire & Energy" — spark, then build.</p>
       </div>
 
       <div class="rooms-grid cols-2" style="max-width: 900px;">
         <div class="room-card" style="padding-top: 24px;">
-          <div class="room-tag">RM 1.01</div>
-          <div class="room-name" style="font-size: 28px;">The Kindle</div>
-          <div class="room-function">Brainstorm Suite</div>
-          <p class="room-desc" style="font-size: 15px; line-height: 1.6;">The spark before the build. Whiteboard-intensive ideation hub where raw concepts and early user journeys are first sketched out.</p>
+          <div class="room-tag">CONF ROOM 1</div>
+          <div class="room-name" style="font-size: 28px;">Kindle</div>
+          <div class="room-function">The Spark That Starts Something</div>
+          <p class="room-desc" style="font-size: 15px; line-height: 1.6;">The spark that starts something. Whiteboard-intensive ideation suite where early concepts and user journeys are first ignited.</p>
         </div>
 
         <div class="room-card" style="padding-top: 24px;">
-          <div class="room-tag">RM 1.02</div>
-          <div class="room-name" style="font-size: 28px;">The Forge</div>
-          <div class="room-function">Main Conference</div>
-          <p class="room-desc" style="font-size: 15px; line-height: 1.6;">Where ideas take concrete shape. The main conference workshop where software sprints and product releases are hammered into reality.</p>
+          <div class="room-tag">CONF ROOM 2</div>
+          <div class="room-name" style="font-size: 28px;">Forge</div>
+          <div class="room-function">Shaping & Building That Follows</div>
+          <p class="room-desc" style="font-size: 15px; line-height: 1.6;">The shaping and building that follows the spark. The main conference workshop where software releases and solutions are forged.</p>
+        </div>
+      </div>
+
+      <div class="small-story-bar">
+        <span class="small-story-badge">The Small Story</span>
+        <div class="small-story-text">
+          <strong>Kindle &rarr; Forge:</strong> Kindle &rarr; Forge tells a sequential story (spark, then build) rather than two words meaning the same thing.
         </div>
       </div>
     </div>
@@ -1483,16 +1550,21 @@
       <div class="floor-content-grid">
         <!-- Left Column: Spatial Narrative -->
         <div class="theme-statement-block">
-          <div class="theme-quote">"Where speed and connection live."</div>
+          <div class="theme-quote">"The network connection point where everything scales."</div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Why This Theme</span>
-            <p class="theme-section-body">A nexus is the vital intersection point where multiple networks interweave. Spanning levels 2 and 3, this space unites developers, marketing specialists, and designers into a unified production engine.</p>
+            <span class="theme-section-label">Why This Name</span>
+            <p class="theme-section-body">CommercePundit is AI-led ecommerce — "Nexus" is a genuine network and connection-point term, fitting without being a generic buzzword. One unified identity spans both floors since it is one continuous team.</p>
           </div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Spatial Atmosphere</span>
-            <p class="theme-section-body">High-contrast architectural minimalism, terminal-inspired typography, and acoustic wrapped pillars for focused execution.</p>
+            <span class="theme-section-label">What It Covers & Reflects</span>
+            <p class="theme-section-body">CommercePundit's full floor treatment across both levels (2<sup>nd</sup> & 3<sup>rd</sup>), establishing continuous operational identity.</p>
+          </div>
+
+          <div class="theme-detail-section">
+            <span class="theme-section-label">Visual Reference Concept</span>
+            <p class="theme-section-body">Coding culture and hustle-adjacent language — terminal and monospace typography, developer in-jokes, and an "always shipping" energy. This is the floor where the tech-forward tone comes through most distinctly.</p>
           </div>
         </div>
 
@@ -1563,57 +1635,64 @@
       <div class="slide-header">
         <p class="kicker">2<sup>nd</sup> & 3<sup>rd</sup> Floors • Room Names</p>
         <h2>The Nexus — Meeting Spaces</h2>
-        <p class="lede">Seven connected rooms named for cross-functional collaboration and sprint rhythm.</p>
+        <p class="lede">Room names from one family: "Network Topology" (7 spaces across both floors).</p>
       </div>
 
       <div class="rooms-grid cols-4">
         <div class="room-card">
-          <div class="room-tag">SPRINT POD</div>
-          <div class="room-name">The Node</div>
-          <div class="room-function">Micro-Meeting</div>
-          <p class="room-desc">A single point of connection. Focused pod for 2-3 person quick engineering syncs.</p>
+          <div class="room-tag">2<sup>nd</sup> FL • CONF 1</div>
+          <div class="room-name">Node</div>
+          <div class="room-function">A Single Connection Point</div>
+          <p class="room-desc">Focused space for 2–3 person engineering syncs and architectural checkpoints.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">COLLAB ROOM</div>
-          <div class="room-name">The Link</div>
-          <div class="room-function">Cross-Team Sync</div>
+          <div class="room-tag">2<sup>nd</sup> FL • CONF 2</div>
+          <div class="room-name">Link</div>
+          <div class="room-function">Connection Between Two Points</div>
           <p class="room-desc">Where ideas connect. Collaborative space linking tech architecture with client design.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">INFRASTRUCTURE</div>
-          <div class="room-name">The Core</div>
-          <div class="room-function">Server Center</div>
-          <p class="room-desc">The center of it all. Technological heartbeat and server infrastructure powering operations.</p>
+          <div class="room-tag">2<sup>nd</sup> FL • SERVER</div>
+          <div class="room-name">Core</div>
+          <div class="room-function">The Center of the Network</div>
+          <p class="room-desc">The center of the network. Technological heartbeat and server infrastructure powering operations.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">ROADMAP SUITE</div>
-          <div class="room-name">The Path</div>
-          <div class="room-function">Strategic Planning</div>
-          <p class="room-desc">The route forward. Release planning suite mapping out technical milestones and features.</p>
+          <div class="room-tag">3<sup>rd</sup> FL • CONF 1</div>
+          <div class="room-name">Path</div>
+          <div class="room-function">The Route Across Network</div>
+          <p class="room-desc">Strategic planning suite mapping out technical milestones and sprint roadmaps.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">MAIN CONFERENCE</div>
-          <div class="room-name">The Grid</div>
-          <div class="room-function">Scrum Conference</div>
+          <div class="room-tag">3<sup>rd</sup> FL • CONF 2</div>
+          <div class="room-name">Grid</div>
+          <div class="room-function">A Structured Network</div>
           <p class="room-desc">Structured, connected thinking. Main multi-team conference room for scrums and reviews.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">OPEN LOUNGE</div>
-          <div class="room-name">The Mesh</div>
-          <div class="room-function">Team Lounge</div>
-          <p class="room-desc">Where teams interweave. Relaxed collaborative lounge for creative brainstorming.</p>
+          <div class="room-tag">3<sup>rd</sup> FL • CONF 3</div>
+          <div class="room-name">Mesh</div>
+          <div class="room-function">An Interwoven Network</div>
+          <p class="room-desc">Where teams interweave. Relaxed collaborative lounge for cross-functional exchange.</p>
         </div>
 
         <div class="room-card">
-          <div class="room-tag">RETROSPECTIVE</div>
-          <div class="room-name">The Loop</div>
-          <div class="room-function">Sprint Review</div>
-          <p class="room-desc">Where ideas come full circle. Dedicated post-launch retrospective and review suite.</p>
+          <div class="room-tag">3<sup>rd</sup> FL • CONF 4</div>
+          <div class="room-name">Loop</div>
+          <div class="room-function">Coming Full Circle</div>
+          <p class="room-desc">Where the network comes full circle. Dedicated post-launch retrospective and feedback suite.</p>
+        </div>
+      </div>
+
+      <div class="small-story-bar" style="margin-top: 24px;">
+        <span class="small-story-badge">Network Topology</span>
+        <div class="small-story-text">
+          Every name here comes from the same vocabulary — literal parts of how a network is described — so they read as one coherent architectural system rather than seven unrelated tech words.
         </div>
       </div>
     </div>
@@ -1632,16 +1711,21 @@
       <div class="floor-content-grid">
         <!-- Left Column: Spatial Narrative -->
         <div class="theme-statement-block">
-          <div class="theme-quote">"Where leadership steers, vision aligns."</div>
+          <div class="theme-quote">"Where the ship is steered, and colors quietly meet."</div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Why This Theme</span>
-            <p class="theme-section-body">The Bridge is where all brands under our roof unite. It houses executive leadership, board governance, and flagship client presentation suites. It bridges vision with real-world execution.</p>
+            <span class="theme-section-label">Why This Name</span>
+            <p class="theme-section-body">Leadership floor — "The Bridge" is literally where a ship is steered from (CEO cabin, Director cabin, board room), and narratively it is where Ignite (orange) and Nexus (teal) quietly meet.</p>
           </div>
 
           <div class="theme-detail-section">
-            <span class="theme-section-label">Spatial Atmosphere</span>
-            <p class="theme-section-body">Subtle, sophisticated natural tones with restrained accent highlights. Understated luxury that commands respect without shouting.</p>
+            <span class="theme-section-label">What It Covers & Reflects</span>
+            <p class="theme-section-body">CEO cabin, Director cabin (both intentionally left unnamed, as requested), the Board Room, and 2 conference suites. Primarily used for executive governance, interviews, visitors, and vendors — light-touch and understated, not heavily designed.</p>
+          </div>
+
+          <div class="theme-detail-section">
+            <span class="theme-section-label">Visual Reference Concept</span>
+            <p class="theme-section-body">Leadership and vision language — steady, forward-looking, and understated. Skyline and horizon-toned imagery as the visual family, keeping the aesthetic quiet and commanding.</p>
           </div>
         </div>
 
@@ -1651,7 +1735,7 @@
             <span style="font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--ink);">Executive & Client Governance</span>
           </div>
 
-          <p class="palette-subhead">Restrained Natural Palette (Click to Copy)</p>
+          <p class="palette-subhead">Neutral Base • Subtle Orange + Teal Blend Only on Board Room Signature Wall (Click to Copy)</p>
 
           <div class="swatch-strip cols-4">
             <div class="swatch-item" onclick="copyColor('#F8F6F0', 'Alabaster')">
@@ -1694,29 +1778,37 @@
       <div class="slide-header">
         <p class="kicker">4<sup>th</sup> Floor • Room Names</p>
         <h2>The Bridge — Meeting Spaces</h2>
-        <p class="lede">Three executive suites named for our founding roots, leadership stability, and global vision.</p>
+        <p class="lede">Room names from one family: "Steady Points & Sightlines" (matches The Bridge).</p>
       </div>
 
       <div class="rooms-grid cols-3" style="max-width: 1080px;">
         <div class="room-card" style="padding-top: 24px;">
-          <div class="room-tag">RM 4.01</div>
-          <div class="room-name" style="font-size: 26px;">The Atlanta</div>
+          <div class="room-tag">BOARD ROOM</div>
+          <div class="room-name" style="font-size: 26px;">Atlanta</div>
           <div class="room-function">Executive Boardroom</div>
-          <p class="room-desc" style="font-size: 14.5px; line-height: 1.6;">Where it all began. Flagship executive boardroom honoring our home city and the milestone decisions that shaped the company.</p>
+          <p class="room-desc" style="font-size: 14.5px; line-height: 1.6;">Kept as the one intentional exception, tied to the actual HQ. Flagship boardroom for high-stakes governance and milestone decisions.</p>
         </div>
 
         <div class="room-card" style="padding-top: 24px;">
-          <div class="room-tag">RM 4.02</div>
-          <div class="room-name" style="font-size: 26px;">The Anchor</div>
-          <div class="room-function">Leadership Sanctuary</div>
-          <p class="room-desc" style="font-size: 14.5px; line-height: 1.6;">Steady ground for big decisions. CEO & Director governance suite providing calm, confidential clarity for corporate strategy.</p>
+          <div class="room-tag">CONF ROOM 1</div>
+          <div class="room-name" style="font-size: 26px;">Anchor</div>
+          <div class="room-function">Steady Ground for Big Decisions</div>
+          <p class="room-desc" style="font-size: 14.5px; line-height: 1.6;">Steady ground for big decisions. Leadership suite providing calm, confidential clarity for strategy and governance.</p>
         </div>
 
         <div class="room-card" style="padding-top: 24px;">
-          <div class="room-tag">RM 4.03</div>
-          <div class="room-name" style="font-size: 26px;">The Horizon</div>
-          <div class="room-function">Client Presentation</div>
-          <p class="room-desc" style="font-size: 14.5px; line-height: 1.6;">A view toward what's next. Premium suite looking outward toward global market expansion, partnerships, and investor pitches.</p>
+          <div class="room-tag">CONF ROOM 2</div>
+          <div class="room-name" style="font-size: 26px;">Horizon</div>
+          <div class="room-function">A View Toward What's Next</div>
+          <p class="room-desc" style="font-size: 14.5px; line-height: 1.6;">A view toward what's next. Premium suite looking outward toward global market expansion, partnerships, and future horizons.</p>
+        </div>
+      </div>
+
+      <div class="small-story-bar">
+        <span class="small-story-badge">The Small Story</span>
+        <div class="small-story-text">
+          <strong>Anchor &rarr; Horizon:</strong> Anchor is stability (where a decision gets steadied); Horizon is what comes after (where the conversation looks ahead). Grounding, then vision — following the same logic as every other paired floor.
+          <span style="display: block; margin-top: 4px; font-size: 12.5px; color: var(--mute-light);"><em>Note: CEO and Director cabins are intentionally left unnamed, as requested.</em></span>
         </div>
       </div>
     </div>
