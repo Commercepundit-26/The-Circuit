@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Building the Brand Around Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111111; --paper:#ffffff; --line:#111111; --mute:#6b6b6b; --panel:#f5f5f3;
+    --serif:'Fraunces', Georgia, serif; --sans:'Inter', -apple-system, Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ }
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;margin:0;}
+  body{
+    background:var(--paper); color:var(--ink); font-family:var(--sans);
+    padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+    overflow:hidden;
+  }
+  .deck{position:relative; width:100%; height:100vh; height:100dvh; overflow:hidden;}
+  .slide{
+    position:absolute; inset:0; display:flex; flex-direction:column;
+    padding:min(6vw,64px) min(7vw,72px); opacity:0; pointer-events:none;
+    transform:translateX(24px); transition:opacity .45s ease, transform .45s ease;
+  }
+  .slide.active{opacity:1; pointer-events:auto; transform:translateX(0);}
+  .kicker{font-size:13px; letter-spacing:.03em; color:var(--mute); margin:0 0 18px;}
+  .ghost-num{position:absolute; top:min(5vw,48px); right:min(6vw,60px); font-family:var(--serif); font-size:clamp(60px,10vw,140px); color:var(--panel); font-weight:500; line-height:1; z-index:0; user-select:none;}
+  .slide > .body-wrap{position:relative; z-index:1; flex:1; display:flex; flex-direction:column; justify-content:center; max-width:1100px;}
+  h1{font-family:var(--serif); font-weight:500; font-size:clamp(34px,4.6vw,68px); line-height:1.05; margin:0 0 18px; max-width:14ch;}
+  h2{font-family:var(--serif); font-weight:500; font-size:clamp(26px,3.4vw,44px); line-height:1.1; margin:0 0 10px;}
+  p.lede{font-size:clamp(16px,1.5vw,20px); color:var(--mute); line-height:1.5; max-width:56ch; margin:0 0 8px;}
+  .meta{font-size:13px; color:var(--mute); margin-top:28px;}
+
+  /* Title slide */
+  .title-slide{justify-content:flex-end;}
+  .title-slide .body-wrap{max-width:900px;}
+
+  /* Content list */
+  .points{display:flex; flex-direction:column; gap:26px; margin-top:8px; max-width:760px;}
+  .point{border-top:1px solid var(--line); padding-top:16px;}
+  .point h3{font-family:var(--sans); font-weight:600; font-size:18px; margin:0 0 6px;}
+  .point p{margin:0; color:var(--mute); font-size:15px; line-height:1.5; max-width:60ch;}
+
+  /* Narrative / circuit flow */
+  .flow{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin:22px 0 26px;}
+  .flow span.node{font-family:var(--serif); font-size:clamp(18px,2vw,26px); border:1px solid var(--line); padding:10px 20px; border-radius:999px;}
+  .flow span.arrow{color:var(--mute); font-size:18px;}
+  .connector-tag{font-size:13px; color:var(--mute); border-left:2px solid var(--ink); padding-left:12px; margin-bottom:18px;}
+
+  /* Scope */
+  .scope-list{display:grid; grid-template-columns:repeat(5,1fr); gap:0; margin-top:20px; border-top:1px solid var(--line);}
+  .scope-item{border-right:1px solid var(--line); padding:18px 14px 0; min-height:120px;}
+  .scope-item:last-child{border-right:none;}
+  .scope-num{font-family:var(--serif); font-size:22px; color:var(--mute); display:block; margin-bottom:10px;}
+  .scope-item span.label{font-size:14px; font-weight:500; line-height:1.35; display:block;}
+  .footnote{font-size:13px; color:var(--mute); margin-top:22px;}
+
+  /* Floor slide */
+  .floor-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:min(6vw,60px); align-items:start; width:100%;}
+  .floor-left .covers{font-size:15px; color:var(--mute); line-height:1.55; max-width:46ch; margin:14px 0 20px;}
+  .visual-box{border:1px dashed #bbb; border-radius:2px; padding:16px; font-size:13px; color:var(--mute); margin-top:10px; max-width:46ch;}
+  .visual-box b{color:var(--ink); font-weight:600; display:block; margin-bottom:4px; font-size:13px;}
+  .color-chip{display:inline-flex; align-items:center; gap:10px; margin-top:18px; font-size:13px; color:var(--mute);}
+  .swatch{width:22px; height:22px; border-radius:50%; border:1px solid rgba(0,0,0,.15); flex-shrink:0;}
+  .room-list{display:flex; flex-direction:column;}
+  .room{border-top:1px solid var(--line); padding:14px 0;}
+  .room:last-child{border-bottom:1px solid var(--line);}
+  .room .rname{font-family:var(--serif); font-size:20px; margin-right:10px;}
+  .room .rsub{font-size:13.5px; color:var(--mute);}
+  .img-placeholder{width:100%; aspect-ratio:16/7; border:1px dashed #ccc; margin-top:18px; display:flex; align-items:center; justify-content:center; font-size:12px; color:#aaa; letter-spacing:.02em;}
+
+  /* Staircase */
+  .staircase-body{max-width:640px;}
+
+  /* Colors slide */
+  .swatch-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:26px; margin-top:30px; max-width:900px;}
+  .swatch-card .block{width:100%; aspect-ratio:1/1; border-radius:4px; border:1px solid rgba(0,0,0,.08);}
+  .swatch-card .sc-name{font-size:14px; font-weight:600; margin-top:12px;}
+  .swatch-card .sc-hex{font-size:12.5px; color:var(--mute); font-family:monospace;}
+
+  /* Logos slide */
+  .logo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:26px; max-width:900px;}
+  .logo-box{border:1px solid var(--line); aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; padding:12px;}
+  .logo-box span{font-family:var(--serif); font-size:16px; text-align:center;}
+
+  /* Phases */
+  .phase-list{display:flex; flex-direction:column; margin-top:14px; max-width:760px;}
+  .phase{display:flex; gap:22px; border-top:1px solid var(--line); padding:16px 0; align-items:baseline;}
+  .phase .pnum{font-family:var(--serif); font-size:20px; width:34px; flex-shrink:0;}
+  .phase .pname{font-weight:600; font-size:15px; width:150px; flex-shrink:0;}
+  .phase .pdetail{font-size:14px; color:var(--mute);}
+
+  /* Close */
+  .asks{display:flex; flex-direction:column; gap:0; margin-top:18px; max-width:700px;}
+  .ask{border-top:1px solid var(--line); padding:16px 0; font-size:16px;}
+  .ask:last-child{border-bottom:1px solid var(--line);}
+  .closing{font-family:var(--serif); font-size:clamp(30px,4vw,52px); margin-top:40px;}
+
+  /* Nav */
+  .nav{position:fixed; left:0; right:0; bottom:0; z-index:5; display:flex; align-items:center; justify-content:space-between; padding:16px min(7vw,72px); padding-bottom:calc(16px + env(safe-area-inset-bottom,0px));}
+  .nav-btn{background:none; border:1px solid var(--line); color:var(--ink); font-family:var(--sans); font-size:13px; padding:9px 18px; cursor:pointer; border-radius:999px;}
+  .nav-btn:disabled{opacity:.25; cursor:default;}
+  .nav-count{font-size:12.5px; color:var(--mute); font-variant-numeric:tabular-nums;}
+  .progress-track{position:fixed; left:0; right:0; bottom:0; height:2px; background:var(--panel); z-index:6;}
+  .progress-fill{height:100%; background:var(--ink); transition:width .4s ease;}
+
+  @media (max-width:760px){
+    .slide{padding:24px 22px;}
+    .floor-grid{grid-template-columns:1fr; gap:26px;}
+    .scope-list{grid-template-columns:repeat(2,1fr);}
+    .scope-item:nth-child(2n){border-right:none;}
+    .swatch-grid{grid-template-columns:repeat(2,1fr);}
+    .logo-grid{grid-template-columns:repeat(2,1fr);}
+    .ghost-num{display:none;}
+    .nav{padding:14px 20px;}
+    .phase{gap:14px;}
+    .phase .pname{width:110px; font-size:13.5px;}
+  }
+</style>
+</head>
+<body>
+<div class="deck" id="deck"></div>
+<div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+<div class="nav">
+  <button class="nav-btn" id="prevBtn">Prev</button>
+  <span class="nav-count" id="navCount">01 / 13</span>
+  <button class="nav-btn" id="nextBtn">Next</button>
+</div>
+
+<script>
+const SLIDES = [
+{ id:1, type:"title", title:"Building the Brand Around Us", subtitle:"Atlanta HQ — Office Identity Program", description:"A concept & execution plan for sign-off", meta:"Prepared by Ronak Jain — Creative Team — September 2026" },
+{ id:2, type:"content", title:"Why We're Doing This", points:[
+  {heading:"No visual identity", body:"Floors and rooms carry no brand or thematic identity today."},
+  {heading:"Daily experience matters", body:"People spend the workday here — the space should feel alive, not just functional."},
+  {heading:"Client-facing credibility", body:"Visitors and vendors walk through this building — first impressions should match the caliber of the work."}
+]},
+{ id:3, type:"narrative", title:"The Circuit", description:"One story connects every floor.", flow:["Origin","Ignite","Nexus","The Bridge"], connector:"The Current", body:"You arrive at Origin, energy gets sparked at Ignite, it scales through Nexus, and gets steered from The Bridge. The staircase is what physically carries that energy between floors." },
+{ id:4, type:"scope", title:"Scope at a Glance", items:["Frost (glass films)","Canvas (pillars)","Wall & vinyl graphics","Staircase treatment","Signage & name plaques"], footnote:"Covers all 5 floors, plus the connecting staircase." },
+{ id:5, type:"floor", floor_label:"Ground Floor", theme_name:"Origin", tagline:"The starting point, shared by everyone",
+  covers:"Reception, HR, cafeteria, gaming zone — common ground for the whole building.",
+  rooms:[{name:"Discover",subline:"Where new talent is found"},{name:"Thrive",subline:"Support that keeps people growing"},{name:"Base",subline:"Where every conversation starts"},{name:"Root",subline:"Grounded space for focused conversations"}],
+  color:{name:"Workforce365 Blue",hex:"#1E5FFF",usage:"Light touch — 2 HR cabins only"},
+  visual_concept:"Team-building and coming-together language. Warm, casual photography in shared areas." },
+{ id:6, type:"floor", floor_label:"1st Floor", theme_name:"Ignite", tagline:"Where growth starts — Kitchen365",
+  covers:"Kitchen365's open seating and both conference rooms — full design treatment.",
+  rooms:[{name:"Kindle",subline:"The spark before the build"},{name:"Forge",subline:"Where ideas take shape"}],
+  color:{name:"Kitchen365 Orange",hex:"#FF7A29",usage:"Full floor accent"},
+  visual_concept:"Growth and momentum language. Warm, glowing gradient abstraction." },
+{ id:7, type:"floor", floor_label:"2nd & 3rd Floor", theme_name:"Nexus", tagline:"Where speed and connection live — CommercePundit",
+  covers:"CommercePundit's full floor treatment across both levels — one continuous identity.",
+  rooms:[{name:"Node",subline:"A single point of connection"},{name:"Link",subline:"Where ideas connect"},{name:"Core",subline:"The center of it all — server room"},{name:"Path",subline:"The route forward"},{name:"Grid",subline:"Structured, connected thinking"},{name:"Mesh",subline:"Where teams interweave"},{name:"Loop",subline:"Where ideas come full circle"}],
+  color:{name:"CommercePundit Teal",hex:"#0D9488",usage:"Full floor accent, paired with black"},
+  visual_concept:"Coding culture and hustle-adjacent language. Terminal/monospace typography." },
+{ id:8, type:"floor", floor_label:"4th Floor", theme_name:"The Bridge", tagline:"Where leadership steers, and Ignite meets Nexus",
+  covers:"CEO cabin, Director cabin, board room, 2 conference rooms — light-touch treatment.",
+  rooms:[{name:"Atlanta",subline:"Where it all began — the board room"},{name:"Anchor",subline:"Steady ground for big decisions"},{name:"Horizon",subline:"A view toward what's next"}],
+  color:{name:"Orange + Teal Blend",hex:"#7A6B5C",usage:"Subtle — one signature wall only"},
+  visual_concept:"Leadership and vision language. Skyline / horizon-toned imagery." },
+{ id:9, type:"staircase", title:"The Current", tagline:"The staircase — connecting every floor", body:"4 landing walls, each blending the color below into the color above as you climb.", extra:"Plus a playful step-count / calorie running strip along the full staircase." },
+{ id:10, type:"colors", title:"Brand Colors", swatches:[{name:"Workforce365",hex:"#1E5FFF"},{name:"Kitchen365",hex:"#FF7A29"},{name:"CommercePundit Teal",hex:"#0D9488"},{name:"CommercePundit Black",hex:"#111111"}] },
+{ id:11, type:"logos", title:"The Brands Under One Roof", brands:["Dream Commerce","CommercePundit","Kitchen365","Workforce365","CBStation","CliqStudio"] },
+{ id:12, type:"phases", title:"Execution Phases", items:[
+  {step:"Frost", detail:"Starts on Nexus floors, then Origin's reception"},
+  {step:"Canvas", detail:"Starts on Ignite and The Bridge"},
+  {step:"Wall & Vinyl", detail:"Origin's shared spaces first, then upward"},
+  {step:"Staircase", detail:"Once floor palettes are locked"},
+  {step:"Signage & Plaques", detail:"Once every name is confirmed"}
+]},
+{ id:13, type:"close", title:"What We're Asking For", asks:[
+  "Approve the concept — The Circuit as the building-wide narrative",
+  "Approve the naming approach across every floor",
+  "Approve the phased execution plan and timeline"
+], closing_line:"Thank you" }
+];
+
+function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;"); }
+
+function renderSlide(s, i){
+  let inner = "";
+  const num = String(i+1).padStart(2,"0");
+  if(s.type==="title"){
+    inner = `<div class="body-wrap">
+      <p class="kicker">${esc(s.subtitle)}</p>
+      <h1>${esc(s.title)}</h1>
+      <p class="lede">${esc(s.description)}</p>
+      <p class="meta">${esc(s.meta)}</p>
+    </div>`;
+    return `<section class="slide title-slide">${inner}</section>`;
+  }
+  if(s.type==="content"){
+    inner = `<div class="body-wrap"><h2>${esc(s.title)}</h2>
+      <div class="points">${s.points.map(p=>`<div class="point"><h3>${esc(p.heading)}</h3><p>${esc(p.body)}</p></div>`).join("")}</div>
+    </div>`;
+  } else if(s.type==="narrative"){
+    inner = `<div class="body-wrap"><h2>${esc(s.title)}</h2><p class="lede">${esc(s.description)}</p>
+      <div class="flow">${s.flow.map((f,idx)=>`<span class="node">${esc(f)}</span>`+(idx<s.flow.length-1?'<span class="arrow">&rarr;</span>':'')).join("")}</div>
+      <p class="connector-tag">Connected by ${esc(s.connector)}</p>
+      <p class="lede">${esc(s.body)}</p>
+    </div>`;
+  } else if(s.type==="scope"){
+    inner = `<div class="body-wrap"><h2>${esc(s.title)}</h2>
+      <div class="scope-list">${s.items.map((it,idx)=>`<div class="scope-item"><span class="scope-num">${String(idx+1).padStart(2,"0")}</span><span class="label">${esc(it)}</span></div>`).join("")}</div>
+      <p class="footnote">${esc(s.footnote)}</p>
+    </div>`;
+  } else if(s.type==="floor"){
+    inner = `<div class="body-wrap">
+      <p class="kicker">${esc(s.floor_label)}</p>
+      <h1 style="max-width:10ch;">${esc(s.theme_name)}</h1>
+      <p class="lede" style="margin-bottom:22px;">${esc(s.tagline)}</p>
+      <div class="floor-grid">
+        <div class="floor-left">
+          <p class="covers">${esc(s.covers)}</p>
+          <div class="visual-box"><b>Visual concept</b>${esc(s.visual_concept)}</div>
+          <div class="color-chip"><span class="swatch" style="background:${s.color.hex}"></span>${esc(s.color.name)} — ${esc(s.color.usage)}</div>
+          <div class="img-placeholder">Image placeholder — direction to be given</div>
+        </div>
+        <div class="room-list">${s.rooms.map(r=>`<div class="room"><span class="rname">${esc(r.name)}</span><span class="rsub">${esc(r.subline)}</span></div>`).join("")}</div>
+      </div>
+    </div>`;
+  } else if(s.type==="staircase"){
+    inner = `<div class="body-wrap staircase-body">
+      <p class="kicker">${esc(s.tagline)}</p>
+      <h1>${esc(s.title)}</h1>
+      <p class="lede">${esc(s.body)}</p>
+      <p class="lede">${esc(s.extra)}</p>
+    </div>`;
+  } else if(s.type==="colors"){
+    inner = `<div class="body-wrap"><h2>${esc(s.title)}</h2>
+      <div class="swatch-grid">${s.swatches.map(sw=>`<div class="swatch-card"><div class="block" style="background:${sw.hex}"></div><div class="sc-name">${esc(sw.name)}</div><div class="sc-hex">${sw.hex}</div></div>`).join("")}</div>
+    </div>`;
+  } else if(s.type==="logos"){
+    inner = `<div class="body-wrap"><h2>${esc(s.title)}</h2>
+      <div class="logo-grid">${s.brands.map(b=>`<div class="logo-box"><span>${esc(b)}</span></div>`).join("")}</div>
+      <p class="footnote">Placeholder wordmarks — swap in actual logo files once shared.</p>
+    </div>`;
+  } else if(s.type==="phases"){
+    inner = `<div class="body-wrap"><h2>${esc(s.title)}</h2>
+      <div class="phase-list">${s.items.map((p,idx)=>`<div class="phase"><span class="pnum">${String(idx+1).padStart(2,"0")}</span><span class="pname">${esc(p.step)}</span><span class="pdetail">${esc(p.detail)}</span></div>`).join("")}</div>
+    </div>`;
+  } else if(s.type==="close"){
+    inner = `<div class="body-wrap"><h2>${esc(s.title)}</h2>
+      <div class="asks">${s.asks.map(a=>`<div class="ask">${esc(a)}</div>`).join("")}</div>
+      <p class="closing">${esc(s.closing_line)}</p>
+    </div>`;
+  }
+  return `<section class="slide"><span class="ghost-num">${num}</span>${inner}</section>`;
+}
+
+const deck = document.getElementById("deck");
+deck.innerHTML = SLIDES.map(renderSlide).join("");
+const slideEls = Array.from(deck.querySelectorAll(".slide"));
+let current = 0;
+
+function show(idx){
+  idx = Math.max(0, Math.min(slideEls.length-1, idx));
+  slideEls.forEach((el,i)=> el.classList.toggle("active", i===idx));
+  current = idx;
+  document.getElementById("navCount").textContent = String(idx+1).padStart(2,"0") + " / " + String(slideEls.length).padStart(2,"0");
+  document.getElementById("prevBtn").disabled = idx===0;
+  document.getElementById("nextBtn").disabled = idx===slideEls.length-1;
+  document.getElementById("progressFill").style.width = (((idx+1)/slideEls.length)*100) + "%";
+}
+document.getElementById("prevBtn").addEventListener("click", ()=>show(current-1));
+document.getElementById("nextBtn").addEventListener("click", ()=>show(current+1));
+window.addEventListener("keydown", (e)=>{
+  if(e.key==="ArrowRight" || e.key===" ") show(current+1);
+  if(e.key==="ArrowLeft") show(current-1);
+});
+let touchX=null;
+window.addEventListener("touchstart", e=> touchX = e.touches[0].clientX);
+window.addEventListener("touchend", e=>{
+  if(touchX===null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if(dx < -40) show(current+1);
+  if(dx > 40) show(current-1);
+  touchX = null;
+});
+show(0);
+</script>
+</body>
+</html>
