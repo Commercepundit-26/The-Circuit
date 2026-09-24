@@ -33,7 +33,6 @@
     font-family: var(--sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow: hidden;
     position: relative;
     user-select: text;
     -webkit-user-select: text;
@@ -155,10 +154,9 @@
   }
 
   .kicker {
-    font-size: 11.5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
     color: var(--mute);
     margin-bottom: 12px;
     display: flex;
@@ -231,7 +229,7 @@
   .meta-col .meta-label {
     font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.04em;
     color: #727785;
     margin-bottom: 5px;
   }
@@ -263,7 +261,7 @@
     font-family: var(--mono);
     font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.04em;
     color: var(--mute-light);
     margin-bottom: 12px;
   }
@@ -273,7 +271,7 @@
     font-size: 22px;
     font-weight: 500;
     margin-bottom: 12px;
-    line-height: 1.25;
+    line-height: 1.4;
     color: var(--ink);
   }
 
@@ -304,7 +302,7 @@
     font-weight: 700;
     color: var(--mute-light);
     margin-bottom: 8px;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
   }
 
   .circuit-name {
@@ -384,7 +382,7 @@
     font-family: var(--serif);
     font-size: 19px;
     font-weight: 500;
-    line-height: 1.25;
+    line-height: 1.4;
     margin-bottom: 8px;
     color: var(--ink);
   }
@@ -401,7 +399,7 @@
     font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     color: var(--ink);
   }
 
@@ -425,7 +423,7 @@
     font-size: clamp(24px, 2.5vw, 36px);
     font-weight: 400;
     font-style: italic;
-    line-height: 1.25;
+    line-height: 1.38;
     color: var(--ink);
     border-left: 2px solid var(--ink);
     padding-left: 18px;
@@ -438,12 +436,11 @@
   }
 
   .theme-section-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--mute-light);
+    font-family: var(--sans);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--mute);
   }
 
   .theme-section-body {
@@ -516,24 +513,24 @@
 
   .swatch-hex {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12.5px;
+    font-weight: 500;
     color: var(--mute);
   }
 
   .swatch-rgb {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     color: var(--mute-light);
   }
 
   .palette-subhead {
-    font-family: var(--mono);
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--mute-light);
-    margin-bottom: 4px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--mute);
+    margin-bottom: 6px;
   }
 
   /* Room Directory Grid (Clean Architectural Plaques) */
@@ -569,7 +566,7 @@
     font-weight: 700;
     color: var(--mute-light);
     margin-bottom: 10px;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
   }
 
   .room-name {
@@ -839,7 +836,7 @@
     font-weight: 600;
     color: var(--ink);
     font-family: var(--mono);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
   }
 
   .nav-controls-right {
@@ -883,8 +880,11 @@
 
   .progress-fill {
     height: 100%;
+    width: 100%;
     background: var(--ink);
-    transition: width 0.35s ease;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   body.is-dark-slide .progress-fill {
@@ -1112,7 +1112,7 @@
     <span class="ghost-num">01</span>
     <div class="body-wrap cover-layout">
       <div class="cover-main-block">
-        <p class="kicker">Workplace Identity & Environmental Design</p>
+        <div class="cover-pretitle">Workplace Identity & Environmental Design</div>
         <h1>The Circuit</h1>
         <p class="lede">A cohesive visual design and spatial naming framework connecting every floor into a unified narrative.</p>
       </div>
@@ -1146,21 +1146,21 @@
 
       <div class="pillar-grid">
         <div class="pillar-card">
-          <div class="pillar-num">01 / ORIENTATION</div>
+          <div class="pillar-num">Spatial Orientation</div>
           <h3>Eliminate Spatial Anonymity</h3>
           <p>Today, floors and meeting rooms lack distinct visual character. Navigating identical corridors creates disorientation rather than an intuitive sense of place.</p>
         </div>
 
         <div class="pillar-card">
-          <div class="pillar-num">02 / HUMAN EXPERIENCE</div>
+          <div class="pillar-num">Human Experience</div>
           <h3>Elevate Daily Work Life</h3>
           <p>People spend full working days in this building. Intentional environmental graphics, acoustic textures, and color accents turn plain drywall into energizing spaces.</p>
         </div>
 
         <div class="pillar-card">
-          <div class="pillar-num">03 / CREDIBILITY</div>
+          <div class="pillar-num">Client &amp; Team Credibility</div>
           <h3>Executive & Client Credibility</h3>
-          <p>Global clients, partners, and enterprise candidates walk through these doors. Our physical workplace must reflect the world-class caliber of our delivery.</p>
+          <p>Global clients, partners, and enterprise candidates walk through these doors. Our physical workplace must match the precision, operational scale, and architectural presence of our organization.</p>
         </div>
       </div>
     </div>
@@ -1227,35 +1227,35 @@
 
       <div class="scope-grid">
         <div class="scope-col">
-          <div class="scope-index">01 / FROST</div>
+          <div class="scope-index">Glass Manifestation</div>
           <h3 class="scope-title">Glass Manifestation</h3>
           <p class="scope-detail">Precision-cut frosted films ensuring visual privacy for meetings while preserving natural daylight.</p>
           <div class="scope-target">All Meeting Glass</div>
         </div>
 
         <div class="scope-col">
-          <div class="scope-index">02 / CANVAS</div>
+          <div class="scope-index">Acoustic Canvases</div>
           <h3 class="scope-title">Acoustic Canvases</h3>
           <p class="scope-detail">Gallery-wrapped acoustic panels for structural columns, dampening open-office noise.</p>
           <div class="scope-target">Columns & Bays</div>
         </div>
 
         <div class="scope-col">
-          <div class="scope-index">03 / VINYL</div>
+          <div class="scope-index">Wall Murals</div>
           <h3 class="scope-title">Wall Murals</h3>
           <p class="scope-detail">Large-format matte wall vinyls highlighting floor identities and motivating typographic mantras.</p>
           <div class="scope-target">Feature Walls</div>
         </div>
 
         <div class="scope-col">
-          <div class="scope-index">04 / CURRENT</div>
+          <div class="scope-index">Staircase Murals</div>
           <h3 class="scope-title">Staircase Murals</h3>
           <p class="scope-detail">Landing gradient walls transitioning between floor palettes, with a running step-counter.</p>
           <div class="scope-target">4 Mid Landings</div>
         </div>
 
         <div class="scope-col">
-          <div class="scope-index">05 / SIGNAGE</div>
+          <div class="scope-index">Wayfinding Plaques</div>
           <h3 class="scope-title">Wayfinding Plaques</h3>
           <p class="scope-detail">Laser-etched architectural door plates unifying every room under "The" nomenclature.</p>
           <div class="scope-target">Every Door</div>
@@ -1997,7 +1997,7 @@
 <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
   <div class="lightbox-content" onclick="event.stopPropagation()">
     <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-    <img class="lightbox-img" id="lightboxImg" src="" alt="Enlarged Mockup" />
+    <img class="lightbox-img" id="lightboxImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Enlarged Mockup" />
     <div class="lightbox-caption" id="lightboxCaption"></div>
   </div>
 </div>
