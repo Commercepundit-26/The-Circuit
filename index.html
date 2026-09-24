@@ -1,0 +1,2370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Circuit — Atlanta HQ Office Identity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #111111;
+    --paper: #ffffff;
+    --paper-subtle: #f8f9fa;
+    --paper-card: #f4f5f6;
+    --line: #111111;
+    --line-subtle: #e5e7eb;
+    --line-hairline: #eeeeee;
+    --mute: #666666;
+    --mute-light: #999999;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --mono: 'JetBrains Mono', SFMono-Regular, Menlo, monospace;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; width: 100%; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+  }
+
+  /* Presentation Deck Viewport */
+  .deck {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(24px, 4.5vw, 56px) clamp(28px, 6vw, 84px) clamp(64px, 7vw, 92px);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px) scale(0.995);
+    transition: opacity 0.38s var(--ease-out), transform 0.38s var(--ease-out);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-subtle) transparent;
+  }
+
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+    z-index: 2;
+  }
+
+  .ghost-num {
+    position: absolute;
+    top: clamp(16px, 3.5vw, 44px);
+    right: clamp(24px, 5vw, 72px);
+    font-family: var(--serif);
+    font-size: clamp(64px, 11vw, 150px);
+    color: #f1f2f4;
+    font-weight: 500;
+    line-height: 0.9;
+    z-index: 0;
+    pointer-events: none;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .body-wrap {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1240px;
+    margin: auto 0;
+  }
+
+  /* Typography */
+  .kicker {
+    font-size: 11.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--mute);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .kicker::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 1px;
+    background: var(--ink);
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(34px, 4.8vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+    max-width: 18ch;
+    color: var(--ink);
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(28px, 3.6vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-bottom: 12px;
+  }
+
+  p.lede {
+    font-size: clamp(15.5px, 1.35vw, 19px);
+    color: var(--mute);
+    line-height: 1.55;
+    max-width: 68ch;
+    font-weight: 400;
+    margin-bottom: 18px;
+  }
+
+  /* Slide 01: Title Cover */
+  .title-cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 80%;
+  }
+
+  .cover-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    width: fit-content;
+  }
+
+  .cover-badge .pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ink);
+  }
+
+  .cover-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    max-width: 980px;
+  }
+
+  .meta-col .meta-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--mute);
+    margin-bottom: 4px;
+  }
+
+  .meta-col .meta-val {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* Slide 02: Why We're Doing This */
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 28px;
+  }
+
+  .pillar-card {
+    border-top: 2px solid var(--ink);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .pillar-num {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .pillar-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .pillar-card p {
+    font-size: 14px;
+    color: var(--mute);
+    line-height: 1.55;
+  }
+
+  .pillar-tag {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    background: var(--paper-card);
+    padding: 4px 8px;
+    border-radius: 3px;
+    width: fit-content;
+  }
+
+  /* Slide 03: Narrative / Circuit Flow */
+  .circuit-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 28px 0 24px;
+    position: relative;
+  }
+
+  .circuit-node {
+    border: 1px solid var(--ink);
+    padding: 20px;
+    border-radius: 6px;
+    background: var(--paper);
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .circuit-node:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  }
+
+  .circuit-step {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--mute);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .circuit-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .circuit-floor {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .circuit-desc {
+    font-size: 12.5px;
+    color: var(--mute);
+    line-height: 1.45;
+  }
+
+  .circuit-connector {
+    background: var(--paper-card);
+    border-left: 3px solid var(--ink);
+    padding: 16px 20px;
+    border-radius: 0 4px 4px 0;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .connector-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .connector-badge {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 500;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+
+  .connector-text {
+    font-size: 13.5px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .connector-sub {
+    font-size: 12.5px;
+    color: var(--mute);
+  }
+
+  /* Slide 04: Scope Grid */
+  .scope-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border: 1px solid var(--ink);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 28px;
+  }
+
+  .scope-col {
+    padding: 22px 18px;
+    border-right: 1px solid var(--line-subtle);
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+  }
+
+  .scope-col:last-child {
+    border-right: none;
+  }
+
+  .scope-index {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--mute);
+    margin-bottom: 12px;
+  }
+
+  .scope-title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .scope-detail {
+    font-size: 13px;
+    color: var(--mute);
+    line-height: 1.45;
+  }
+
+  .scope-target {
+    margin-top: 16px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    border-top: 1px solid var(--line-hairline);
+    padding-top: 10px;
+  }
+
+  /* Floor Layout Grid (Slides 05 - 08) */
+  .floor-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: clamp(24px, 4.5vw, 56px);
+    align-items: start;
+    margin-top: 14px;
+  }
+
+  .floor-brand-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .floor-badge-group {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .floor-num-badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    background: var(--paper-card);
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .floor-logo-container {
+    height: 38px;
+    display: flex;
+    align-items: center;
+  }
+
+  .floor-logo-container img {
+    max-height: 34px;
+    max-width: 170px;
+    object-fit: contain;
+  }
+
+  .floor-narrative-card {
+    background: var(--paper-card);
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+  }
+
+  .narrative-item {
+    margin-bottom: 12px;
+  }
+
+  .narrative-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .narrative-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .narrative-text {
+    font-size: 13.5px;
+    color: #333333;
+    line-height: 1.5;
+  }
+
+  /* Swatches System within Floor */
+  .floor-swatches-section {
+    margin-top: 18px;
+  }
+
+  .section-subhead {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--mute);
+    margin-bottom: 10px;
+  }
+
+  .swatch-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .swatch-badge {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--paper);
+    border: 1px solid var(--line-subtle);
+    padding: 6px 12px 6px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .swatch-badge:hover {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  }
+
+  .swatch-badge .swatch-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.15);
+    flex-shrink: 0;
+  }
+
+  .swatch-badge .swatch-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .swatch-badge .swatch-name {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 11.5px;
+  }
+
+  .swatch-badge .swatch-code {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--mute);
+  }
+
+  .swatch-hint {
+    font-size: 11px;
+    color: var(--mute-light);
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  /* Right Column: Rooms & Image Direction */
+  .rooms-container {
+    border-top: 1px solid var(--ink);
+    margin-bottom: 22px;
+  }
+
+  .room-entry {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-subtle);
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 14px;
+    align-items: baseline;
+  }
+
+  .room-entry:last-child {
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .room-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .room-title .dot {
+    width: 4px;
+    height: 4px;
+    background: var(--ink);
+    border-radius: 50%;
+  }
+
+  .room-role {
+    font-size: 13px;
+    color: var(--mute);
+    line-height: 1.45;
+  }
+
+  /* Image Direction Placeholder Card */
+  .direction-placeholder {
+    border: 1.5px dashed #bbbbbb;
+    border-radius: 6px;
+    padding: 16px 18px;
+    background: #fafafa;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .direction-icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--line-subtle);
+    border-radius: 4px;
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--ink);
+  }
+
+  .direction-content {
+    flex: 1;
+  }
+
+  .direction-tag {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .direction-text {
+    font-size: 12.5px;
+    color: #444444;
+    line-height: 1.5;
+  }
+
+  /* Slide 09: The Staircase ("The Current") */
+  .staircase-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 36px;
+    margin-top: 24px;
+    align-items: start;
+  }
+
+  .stair-visual-card {
+    border: 1px solid var(--ink);
+    border-radius: 6px;
+    padding: 24px;
+    background: var(--paper);
+  }
+
+  .stair-tier-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    margin: 18px 0;
+  }
+
+  .stair-tier {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-radius: 4px;
+    border: 1px solid var(--line-subtle);
+    background: var(--paper-card);
+  }
+
+  .stair-tier .tier-name {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .stair-tier .tier-color {
+    font-size: 12px;
+    font-family: var(--mono);
+    color: var(--mute);
+  }
+
+  .stair-runner-feature {
+    border-top: 1px solid var(--line-subtle);
+    padding-top: 14px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--mute);
+    line-height: 1.5;
+  }
+
+  .stair-runner-feature b {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* Slide 10: Created Samples Showcase (Interactive Mockup Gallery) */
+  .sample-showcase-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 16px;
+  }
+
+  .gallery-tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 8px;
+    overflow-x: auto;
+  }
+
+  .gallery-tab-btn {
+    background: var(--paper-subtle);
+    border: 1px solid var(--line-subtle);
+    color: var(--mute);
+    font-family: var(--sans);
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .gallery-tab-btn:hover {
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .gallery-tab-btn.active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+    font-weight: 600;
+  }
+
+  .gallery-view {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 28px;
+    align-items: center;
+    background: var(--paper-card);
+    border: 1px solid var(--line-subtle);
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 380px;
+  }
+
+  .mockup-frame {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #000000;
+    border: 1px solid var(--line-subtle);
+    cursor: zoom-in;
+    aspect-ratio: 16/9.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mockup-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+
+  .mockup-frame:hover img {
+    transform: scale(1.02);
+  }
+
+  .mockup-zoom-overlay {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(17,17,17,0.85);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    pointer-events: none;
+    letter-spacing: 0.04em;
+  }
+
+  .mockup-specs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .mockup-kicker {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--mute);
+    margin-bottom: 6px;
+  }
+
+  .mockup-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .mockup-spec-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 14px 0 18px;
+    border-top: 1px solid var(--line-subtle);
+    padding-top: 12px;
+  }
+
+  .spec-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+
+  .spec-item .spec-label {
+    color: var(--mute);
+    font-weight: 500;
+  }
+
+  .spec-item .spec-val {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .mockup-desc {
+    font-size: 13.5px;
+    color: #444444;
+    line-height: 1.55;
+  }
+
+  /* Slide 11: Execution Phases */
+  .phases-grid {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    border-top: 1px solid var(--ink);
+  }
+
+  .phase-row {
+    display: grid;
+    grid-template-columns: 60px 220px 1fr 140px;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line-subtle);
+    align-items: baseline;
+  }
+
+  .phase-row:last-child {
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .phase-idx {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .phase-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .phase-detail {
+    font-size: 14px;
+    color: var(--mute);
+    line-height: 1.5;
+  }
+
+  .phase-timing {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: right;
+    background: var(--paper-card);
+    padding: 4px 8px;
+    border-radius: 3px;
+  }
+
+  /* Slide 12: Leadership Sign-Off */
+  .signoff-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 28px 0;
+    border-top: 1px solid var(--ink);
+    max-width: 860px;
+  }
+
+  .signoff-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line-subtle);
+  }
+
+  .signoff-item:last-child {
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .signoff-check {
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid var(--ink);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .signoff-text h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .signoff-text p {
+    font-size: 13.5px;
+    color: var(--mute);
+    line-height: 1.45;
+  }
+
+  .signoff-action {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .primary-action-btn {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 12px 26px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .primary-action-btn:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+  }
+
+  .signoff-note {
+    font-size: 13px;
+    color: var(--mute);
+  }
+
+  /* Fixed Navigation Dock */
+  .nav-dock {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px clamp(28px, 6vw, 84px);
+    padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--line-hairline);
+  }
+
+  .nav-controls-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-btn {
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 7px 16px;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nav-btn:hover:not(:disabled) {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .nav-btn:disabled {
+    opacity: 0.25;
+    cursor: default;
+    border-color: var(--line-subtle);
+  }
+
+  .nav-controls-center {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-count {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink);
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-controls-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .icon-btn {
+    background: none;
+    border: 1px solid var(--line-subtle);
+    color: var(--ink);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .icon-btn:hover {
+    border-color: var(--ink);
+    background: var(--paper-subtle);
+  }
+
+  .progress-track {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: var(--paper-card);
+    z-index: 12;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--ink);
+    transition: width 0.35s ease;
+  }
+
+  /* Slide Overview Drawer */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    z-index: 50;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .drawer-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .drawer-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(440px, 92vw);
+    background: var(--paper);
+    z-index: 51;
+    transform: translateX(100%);
+    transition: transform 0.3s var(--ease-out);
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.12);
+  }
+
+  .drawer-overlay.open .drawer-panel {
+    transform: translateX(0);
+  }
+
+  .drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 16px;
+  }
+
+  .drawer-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .drawer-close {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--ink);
+  }
+
+  .drawer-list {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-right: 4px;
+  }
+
+  .drawer-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: left;
+    background: none;
+    transition: all 0.15s ease;
+  }
+
+  .drawer-item:hover {
+    background: var(--paper-card);
+    border-color: var(--line-subtle);
+  }
+
+  .drawer-item.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .drawer-item .item-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    width: 24px;
+    opacity: 0.7;
+  }
+
+  .drawer-item .item-text {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* Lightbox Modal */
+  .lightbox-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    backdrop-filter: blur(8px);
+  }
+
+  .lightbox-modal.open {
+    display: flex;
+  }
+
+  .lightbox-content {
+    position: relative;
+    max-width: 92vw;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lightbox-img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+
+  .lightbox-caption {
+    color: #ffffff;
+    font-size: 13.5px;
+    font-weight: 500;
+    margin-top: 14px;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: -36px;
+    right: 0;
+    color: #ffffff;
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    padding: 4px 8px;
+  }
+
+  /* Toast Notification */
+  .toast {
+    position: fixed;
+    bottom: 74px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--ink);
+    color: var(--paper);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.25s ease;
+    z-index: 60;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 900px) {
+    .slide { padding: 24px 20px 80px; }
+    .pillar-grid { grid-template-columns: 1fr; gap: 18px; }
+    .circuit-track { grid-template-columns: 1fr 1fr; }
+    .scope-grid { grid-template-columns: 1fr; }
+    .scope-col { border-right: none; border-bottom: 1px solid var(--line-subtle); min-height: auto; }
+    .floor-layout { grid-template-columns: 1fr; gap: 24px; }
+    .gallery-view { grid-template-columns: 1fr; }
+    .staircase-grid { grid-template-columns: 1fr; }
+    .ghost-num { display: none; }
+    .room-entry { grid-template-columns: 1fr; gap: 4px; }
+    .phase-row { grid-template-columns: 32px 1fr; gap: 8px; }
+    .phase-timing { grid-column: 2; text-align: left; }
+    .cover-meta-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- SLIDE 01: TITLE / COVER -->
+  <section class="slide title-slide" data-slide="1">
+    <span class="ghost-num">01</span>
+    <div class="body-wrap title-cover">
+      <div class="cover-badge"><span class="pulse"></span> Office Identity Program • Atlanta HQ</div>
+      <h1>The Circuit</h1>
+      <p class="lede">A holistic concept & architectural execution plan for our multi-floor workplace identity. Designed for clarity, operational sign-off, and effortless orientation for all teams.</p>
+      
+      <div class="cover-meta-grid">
+        <div class="meta-col">
+          <div class="meta-label">Campus Location</div>
+          <div class="meta-val">Atlanta Headquarters (Floors G – 4)</div>
+        </div>
+        <div class="meta-col">
+          <div class="meta-label">Brand Ecosystem</div>
+          <div class="meta-val">Workforce 24/7 • Kitchen365 • CommercePundit</div>
+        </div>
+        <div class="meta-col">
+          <div class="meta-label">Document Purpose</div>
+          <div class="meta-val">Concept & Production Sign-Off</div>
+        </div>
+        <div class="meta-col">
+          <div class="meta-label">Creative Direction</div>
+          <div class="meta-val">Ronak Jain • September 2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 02: WHY WE'RE DOING THIS -->
+  <section class="slide" data-slide="2">
+    <span class="ghost-num">02</span>
+    <div class="body-wrap">
+      <p class="kicker">Strategic Motivation</p>
+      <h2>Why Environmental Identity Matters</h2>
+      <p class="lede">A workplace is more than physical desks. It is the three-dimensional expression of our culture, our energy, and our commitment to excellence.</p>
+      
+      <div class="pillar-grid">
+        <div class="pillar-card">
+          <div>
+            <div class="pillar-num">01</div>
+            <h3>Eliminate Spatial Anonymity</h3>
+            <p>Today, our floors and meeting rooms lack distinct visual character. Team members and visitors navigate identical corridors without an intuitive sense of place or brand connection.</p>
+          </div>
+          <div class="pillar-tag">Orientation & Distinction</div>
+        </div>
+        <div class="pillar-card">
+          <div>
+            <div class="pillar-num">02</div>
+            <h3>Elevate Daily Work Experience</h3>
+            <p>Our people spend 8+ hours a day inside this building. Intentional environmental graphics, acoustic textures, and inspiring color accents turn plain drywall into spaces that energize and focus teams.</p>
+          </div>
+          <div class="pillar-tag">Employee Pride & Atmosphere</div>
+        </div>
+        <div class="pillar-card">
+          <div>
+            <div class="pillar-num">03</div>
+            <h3>Executive & Client Credibility</h3>
+            <p>Global clients, partners, and enterprise candidates walk through these doors. Our physical environment must immediately reflect the world-class caliber of the digital products and services we deliver.</p>
+          </div>
+          <div class="pillar-tag">Enterprise Perception</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 03: THE CIRCUIT NARRATIVE -->
+  <section class="slide" data-slide="3">
+    <span class="ghost-num">03</span>
+    <div class="body-wrap">
+      <p class="kicker">Building-Wide Narrative Flow</p>
+      <h2>The Circuit: One Continuous Story</h2>
+      <p class="lede">Rather than treating each floor in isolation, our environmental branding flows like a circuit. You arrive at the foundation, spark momentum, scale production, and steer strategy.</p>
+
+      <div class="circuit-track">
+        <div class="circuit-node">
+          <div class="circuit-step">Phase 01 • Ground Floor</div>
+          <div class="circuit-name">The Origin</div>
+          <div class="circuit-floor">Workforce 24/7 & Shared Commons</div>
+          <div class="circuit-desc">The foundation. Welcoming all people, talent discovery, cafeteria, and collaborative ground.</div>
+        </div>
+
+        <div class="circuit-node">
+          <div class="circuit-step">Phase 02 • 1st Floor</div>
+          <div class="circuit-name">The Ignite</div>
+          <div class="circuit-floor">Kitchen365 Production Hub</div>
+          <div class="circuit-desc">Where initial ideas catch fire. High momentum, culinary-tech energy, and product creation.</div>
+        </div>
+
+        <div class="circuit-node">
+          <div class="circuit-step">Phase 03 • 2nd & 3rd Floors</div>
+          <div class="circuit-name">The Nexus</div>
+          <div class="circuit-floor">CommercePundit Tech & Scale Engine</div>
+          <div class="circuit-desc">Where speed, engineering, and digital connectivity intersect to scale global commerce.</div>
+        </div>
+
+        <div class="circuit-node">
+          <div class="circuit-step">Phase 04 • 4th Floor</div>
+          <div class="circuit-name">The Bridge</div>
+          <div class="circuit-floor">Executive & Client Governance</div>
+          <div class="circuit-desc">Where leadership steers the company forward and enterprise decisions are anchored.</div>
+        </div>
+      </div>
+
+      <div class="circuit-connector">
+        <div class="connector-left">
+          <div class="connector-badge">The Current</div>
+          <div>
+            <div class="connector-text">Connected vertically by the Central Staircase</div>
+            <div class="connector-sub">4 transitional color-morph murals + an active step-count & calorie runner linking every floor.</div>
+          </div>
+        </div>
+        <div style="font-family: var(--mono); font-size: 11.5px; font-weight: 600; color: var(--mute);">PHYSICAL & CULTURAL SPINE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 04: SCOPE AT A GLANCE -->
+  <section class="slide" data-slide="4">
+    <span class="ghost-num">04</span>
+    <div class="body-wrap">
+      <p class="kicker">Implementation Deliverables</p>
+      <h2>Scope at a Glance</h2>
+      <p class="lede">Five architectural touchpoints deployed consistently across all five floors and the central vertical stairwell.</p>
+
+      <div class="scope-grid">
+        <div class="scope-col">
+          <div>
+            <div class="scope-index">01 / FROST</div>
+            <div class="scope-title">Glass Manifestation</div>
+            <div class="scope-detail">Precision-cut frosted films for conference rooms, phone booths, and cabins ensuring visual privacy with daylight transmission.</div>
+          </div>
+          <div class="scope-target">All Meeting Glass</div>
+        </div>
+
+        <div class="scope-col">
+          <div>
+            <div class="scope-index">02 / CANVAS</div>
+            <div class="scope-title">Acoustic Canvases</div>
+            <div class="scope-detail">Gallery-wrapped acoustic fabric panels for structural columns and open bays, reducing ambient noise while delivering brand art.</div>
+          </div>
+          <div class="scope-target">Columns & Open Bays</div>
+        </div>
+
+        <div class="scope-col">
+          <div>
+            <div class="scope-index">03 / VINYL</div>
+            <div class="scope-title">Wall Murals & Decals</div>
+            <div class="scope-detail">Large-format matte wall vinyls highlighting floor themes, motivating mantras, and architectural geometry.</div>
+          </div>
+          <div class="scope-target">Main Feature Walls</div>
+        </div>
+
+        <div class="scope-col">
+          <div>
+            <div class="scope-index">04 / CURRENT</div>
+            <div class="scope-title">Staircase Murals</div>
+            <div class="scope-detail">Landing gradient murals transitioning between floor palettes, complemented by a motivational step-counter runner.</div>
+          </div>
+          <div class="scope-target">4 Mid-Floor Landings</div>
+        </div>
+
+        <div class="scope-col">
+          <div>
+            <div class="scope-index">05 / SIGNAGE</div>
+            <div class="scope-title">Wayfinding Plaques</div>
+            <div class="scope-detail">Laser-etched acrylic and metal room nameplates for cabins and conference suites starting with the unified "The" prefix.</div>
+          </div>
+          <div class="scope-target">Every Door & Entrance</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 05: GROUND FLOOR ("THE ORIGIN") -->
+  <section class="slide" data-slide="5">
+    <span class="ghost-num">05</span>
+    <div class="body-wrap">
+      <p class="kicker">Ground Floor Workplace Identity</p>
+      <h2>The Origin — Foundation & Welcome</h2>
+      <p class="lede">The common ground shared by every employee and visitor. Where talent is discovered, community gathers, and every journey starts.</p>
+
+      <div class="floor-layout">
+        <!-- Left: Brand, Concept, Swatches -->
+        <div class="floor-left">
+          <div class="floor-brand-header">
+            <div class="floor-badge-group">
+              <span class="floor-num-badge">Ground Floor</span>
+              <span style="font-size: 13px; font-weight: 600; color: var(--ink);">Workforce 24/7</span>
+            </div>
+            <div class="floor-logo-container">
+              <img src="Brand Logos/WF247_Horizontal-3Color.svg" alt="Workforce 24/7 Logo" />
+            </div>
+          </div>
+
+          <div class="floor-narrative-card">
+            <div class="narrative-item">
+              <div class="narrative-label">Why This Theme</div>
+              <div class="narrative-text">This floor is the gateway to the building. It houses Reception, HR & Talent Acquisition, the main Cafeteria, and the Gaming Zone. It is the origin point for people and operations.</div>
+            </div>
+            <div class="narrative-item">
+              <div class="narrative-label">What We Experience</div>
+              <div class="narrative-text">A warm, inviting atmosphere with communal energy. Photography and vinyl graphics celebrate teamwork, career growth, and collective momentum.</div>
+            </div>
+          </div>
+
+          <!-- Color Swatches -->
+          <div class="floor-swatches-section">
+            <div class="section-subhead">Ground Floor Brand Palette (Click to Copy)</div>
+            <div class="swatch-row">
+              <div class="swatch-badge" onclick="copyColor('#1E5FFF', 'Workforce Blue')">
+                <span class="swatch-circle" style="background: #1E5FFF;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">Workforce Blue</span>
+                  <span class="swatch-code">#1E5FFF • 30, 95, 255</span>
+                </div>
+              </div>
+              <div class="swatch-badge" onclick="copyColor('#0A1128', 'Deep Navy')">
+                <span class="swatch-circle" style="background: #0A1128;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">Deep Navy</span>
+                  <span class="swatch-code">#0A1128 • 10, 17, 40</span>
+                </div>
+              </div>
+              <div class="swatch-badge" onclick="copyColor('#FFFFFF', 'Pure White')">
+                <span class="swatch-circle" style="background: #FFFFFF;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">Pure White</span>
+                  <span class="swatch-code">#FFFFFF • 255, 255, 255</span>
+                </div>
+              </div>
+            </div>
+            <div class="swatch-hint">Strategic Application: Workforce Blue as primary accent in HR cabins; Deep Navy for architectural grounding.</div>
+          </div>
+        </div>
+
+        <!-- Right: Rooms & Image Direction Placeholder -->
+        <div class="floor-right">
+          <div class="section-subhead">Ground Floor Room Nomenclature ("The" Architecture)</div>
+          <div class="rooms-container">
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Discover</div>
+              <div class="room-role">Interview & Talent Room — where new potential and future team members are found.</div>
+            </div>
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Thrive</div>
+              <div class="room-role">People Operations Cabin — dedicated to continuous employee support and career flourishing.</div>
+            </div>
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Base</div>
+              <div class="room-role">Primary Meeting Hub — the starting point where foundational ideas and projects ignite.</div>
+            </div>
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Root</div>
+              <div class="room-role">Quiet 1-on-1 Cabin — grounded, confidential space for meaningful one-on-one dialogues.</div>
+            </div>
+          </div>
+
+          <!-- Image Placeholder Box -->
+          <div class="direction-placeholder">
+            <div class="direction-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            </div>
+            <div class="direction-content">
+              <div class="direction-tag">IMAGE PLACEHOLDER — ART DIRECTION</div>
+              <div class="direction-text"><strong>Reception Feature Wall & HR Corridor:</strong> High-impact typography stating <em>"Everything Starts Here"</em> with geometric line-art reflecting workforce stability. Awaiting executive sign-off on custom team photography vs. architectural line illustration.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 06: 1ST FLOOR ("THE IGNITE") -->
+  <section class="slide" data-slide="6">
+    <span class="ghost-num">06</span>
+    <div class="body-wrap">
+      <p class="kicker">1st Floor Workplace Identity</p>
+      <h2>The Ignite — Spark & Momentum</h2>
+      <p class="lede">Where concepts take initial flight. High-energy engineering, culinary technology, and rapid product development.</p>
+
+      <div class="floor-layout">
+        <!-- Left: Brand, Concept, Swatches -->
+        <div class="floor-left">
+          <div class="floor-brand-header">
+            <div class="floor-badge-group">
+              <span class="floor-num-badge">1st Floor</span>
+              <span style="font-size: 13px; font-weight: 600; color: var(--ink);">Kitchen365</span>
+            </div>
+            <div class="floor-logo-container">
+              <img src="Brand Logos/Kitchen365.svg" alt="Kitchen365 Logo" />
+            </div>
+          </div>
+
+          <div class="floor-narrative-card">
+            <div class="narrative-item">
+              <div class="narrative-label">Why This Theme</div>
+              <div class="narrative-text">Kitchen365's dedicated floor houses active engineering and product design teams. This space represents the spark before the build — high momentum, focus, and creative fire.</div>
+            </div>
+            <div class="narrative-item">
+              <div class="narrative-label">What We Experience</div>
+              <div class="narrative-text">Vibrant warm accents, glowing geometric gradients, and sprint-ready conference facilities that foster rapid problem solving.</div>
+            </div>
+          </div>
+
+          <!-- Color Swatches -->
+          <div class="floor-swatches-section">
+            <div class="section-subhead">1st Floor Brand Palette (Click to Copy)</div>
+            <div class="swatch-row">
+              <div class="swatch-badge" onclick="copyColor('#FF7A29', 'Kitchen365 Orange')">
+                <span class="swatch-circle" style="background: #FF7A29;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">Kitchen Orange</span>
+                  <span class="swatch-code">#FF7A29 • 255, 122, 41</span>
+                </div>
+              </div>
+              <div class="swatch-badge" onclick="copyColor('#222222', 'Charcoal')">
+                <span class="swatch-circle" style="background: #222222;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">Charcoal Jet</span>
+                  <span class="swatch-code">#222222 • 34, 34, 34</span>
+                </div>
+              </div>
+              <div class="swatch-badge" onclick="copyColor('#FFFFFF', 'Crisp White')">
+                <span class="swatch-circle" style="background: #FFFFFF;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">Crisp White</span>
+                  <span class="swatch-code">#FFFFFF • 255, 255, 255</span>
+                </div>
+              </div>
+            </div>
+            <div class="swatch-hint">Strategic Application: Warm Kitchen Orange accent lines on conference glass and feature wall; Charcoal for crisp typography.</div>
+          </div>
+        </div>
+
+        <!-- Right: Rooms & Image Direction Placeholder -->
+        <div class="floor-right">
+          <div class="section-subhead">1st Floor Room Nomenclature ("The" Architecture)</div>
+          <div class="rooms-container">
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Kindle</div>
+              <div class="room-role">Ideation & Brainstorming Room — the spark that precedes every major product build.</div>
+            </div>
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Forge</div>
+              <div class="room-role">Main Conference Room — the workshop where concepts are hammered into scalable products.</div>
+            </div>
+          </div>
+
+          <!-- Image Placeholder Box -->
+          <div class="direction-placeholder" style="margin-top: 24px;">
+            <div class="direction-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            </div>
+            <div class="direction-content">
+              <div class="direction-tag">IMAGE PLACEHOLDER — ART DIRECTION</div>
+              <div class="direction-text"><strong>Main Corridor Wall & Nook:</strong> Warm-toned acoustic wall wrap combining culinary precision cues with digital code abstractions. Minimalist orange glow contour to highlight door framing and glass dividers. Ready for user feedback on graphics.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 07: 2ND & 3RD FLOOR ("THE NEXUS") -->
+  <section class="slide" data-slide="7">
+    <span class="ghost-num">07</span>
+    <div class="body-wrap">
+      <p class="kicker">2nd & 3rd Floors Workplace Identity</p>
+      <h2>The Nexus — Speed, Scale & Connection</h2>
+      <p class="lede">Where CommercePundit connects technology, speed, and multi-disciplinary teams across two continuous levels.</p>
+
+      <div class="floor-layout">
+        <!-- Left: Brand, Concept, Swatches -->
+        <div class="floor-left">
+          <div class="floor-brand-header">
+            <div class="floor-badge-group">
+              <span class="floor-num-badge">Floors 2 & 3</span>
+              <span style="font-size: 13px; font-weight: 600; color: var(--ink);">CommercePundit</span>
+            </div>
+            <div class="floor-logo-container">
+              <img src="Brand Logos/CP_FullLogo-Black.svg" alt="CommercePundit Logo" />
+            </div>
+          </div>
+
+          <div class="floor-narrative-card">
+            <div class="narrative-item">
+              <div class="narrative-label">Why This Theme</div>
+              <div class="narrative-text">A nexus is the focal intersection where multiple strands unite. Spanning two full levels, this space brings developers, designers, digital marketers, and PMs into one synchronized rhythm.</div>
+            </div>
+            <div class="narrative-item">
+              <div class="narrative-label">What We Experience</div>
+              <div class="narrative-text">Structured architectural grids, terminal-inspired typography, and precision acoustic canvas wraps around structural pillars.</div>
+            </div>
+          </div>
+
+          <!-- Color Swatches: User's Exact Palette -->
+          <div class="floor-swatches-section">
+            <div class="section-subhead">CommercePundit Primary Palette</div>
+            <div class="swatch-row">
+              <div class="swatch-badge" onclick="copyColor('#f2f2f2', 'Concrete')">
+                <span class="swatch-circle" style="background: #f2f2f2; border-color: #ddd;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">Concrete</span>
+                  <span class="swatch-code">#f2f2f2 • 242, 242, 242</span>
+                </div>
+              </div>
+              <div class="swatch-badge" onclick="copyColor('#ffffff', 'White')">
+                <span class="swatch-circle" style="background: #ffffff; border-color: #ccc;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">White</span>
+                  <span class="swatch-code">#ffffff • 255, 255, 255</span>
+                </div>
+              </div>
+              <div class="swatch-badge" onclick="copyColor('#000000', 'Black')">
+                <span class="swatch-circle" style="background: #000000;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">Black</span>
+                  <span class="swatch-code">#000000 • 0, 0, 0</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="section-subhead" style="margin-top: 10px;">CommercePundit Secondary Color Palette</div>
+            <div class="swatch-row">
+              <div class="swatch-badge" onclick="copyColor('#fc766a', 'Bittersweet')">
+                <span class="swatch-circle" style="background: #fc766a;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">Bittersweet</span>
+                  <span class="swatch-code">#fc766a • 252, 118, 106</span>
+                </div>
+              </div>
+              <div class="swatch-badge" onclick="copyColor('#95e2e2', 'Morning Glory')">
+                <span class="swatch-circle" style="background: #95e2e2;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">Morning Glory</span>
+                  <span class="swatch-code">#95e2e2 • 149, 226, 226</span>
+                </div>
+              </div>
+              <div class="swatch-badge" onclick="copyColor('#005463', 'Sherpa Blue')">
+                <span class="swatch-circle" style="background: #005463;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">Sherpa Blue</span>
+                  <span class="swatch-code">#005463 • 0, 84, 99</span>
+                </div>
+              </div>
+            </div>
+            <div class="swatch-hint">High contrast architecture: Concrete & White for open zones; Bittersweet & Sherpa Blue for room accents.</div>
+          </div>
+        </div>
+
+        <!-- Right: Rooms & Image Direction Placeholder -->
+        <div class="floor-right">
+          <div class="section-subhead">2nd & 3rd Floors Room Nomenclature ("The" Architecture)</div>
+          <div class="rooms-container">
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Node</div>
+              <div class="room-role">Sprint Pod — a focused single point of cross-disciplinary connection.</div>
+            </div>
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Link</div>
+              <div class="room-role">Collaboration Room — where client objectives link with tech execution.</div>
+            </div>
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Core</div>
+              <div class="room-role">Server & Infrastructure Center — the technological heartbeat of the building.</div>
+            </div>
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Path</div>
+              <div class="room-role">Strategy & Roadmapping Room — mapping out product architecture.</div>
+            </div>
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Grid</div>
+              <div class="room-role">Main Conference Suite — structured, modular thinking for large team scrums.</div>
+            </div>
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Mesh</div>
+              <div class="room-role">Collaborative Lounge — where creative and engineering teams interweave.</div>
+            </div>
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Loop</div>
+              <div class="room-role">Review & Retrospective Room — where ideas and sprint cycles come full circle.</div>
+            </div>
+          </div>
+
+          <!-- Image Placeholder Box -->
+          <div class="direction-placeholder">
+            <div class="direction-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            </div>
+            <div class="direction-content">
+              <div class="direction-tag">IMAGE PLACEHOLDER — ART DIRECTION</div>
+              <div class="direction-text"><strong>Canvas Columns & Calling Booths:</strong> Acoustic canvas wrapped pillars with bold typographic quotes (<em>"Innovate / Elevate"</em>). Phone booth backdrops featuring clean graphic accents in Bittersweet and Sherpa Blue.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 08: 4TH FLOOR ("THE BRIDGE") -->
+  <section class="slide" data-slide="8">
+    <span class="ghost-num">08</span>
+    <div class="body-wrap">
+      <p class="kicker">4th Floor Workplace Identity</p>
+      <h2>The Bridge — Leadership & Perspective</h2>
+      <p class="lede">Where leadership steers the organization and global partners gather. Quiet confidence, refined restraint, and executive credibility.</p>
+
+      <div class="floor-layout">
+        <!-- Left: Brand, Concept, Swatches -->
+        <div class="floor-left">
+          <div class="floor-brand-header">
+            <div class="floor-badge-group">
+              <span class="floor-num-badge">4th Floor</span>
+              <span style="font-size: 13px; font-weight: 600; color: var(--ink);">Executive & Client Floor</span>
+            </div>
+            <div style="font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--mute);">Executive Governance</div>
+          </div>
+
+          <div class="floor-narrative-card">
+            <div class="narrative-item">
+              <div class="narrative-label">Why This Theme</div>
+              <div class="narrative-text">The Bridge is where all brands under our roof unite. It houses executive leadership, board governance, and flagship client presentation suites. It bridges vision with real-world execution.</div>
+            </div>
+            <div class="narrative-item">
+              <div class="narrative-label">What We Experience</div>
+              <div class="narrative-text">Subtle, sophisticated natural tones with restrained accent highlights. Understated luxury that commands respect without shouting.</div>
+            </div>
+          </div>
+
+          <!-- Color Swatches: Natural executive subtle palette -->
+          <div class="floor-swatches-section">
+            <div class="section-subhead">Executive Restrained Palette (Click to Copy)</div>
+            <div class="swatch-row">
+              <div class="swatch-badge" onclick="copyColor('#F8F6F0', 'Alabaster')">
+                <span class="swatch-circle" style="background: #F8F6F0; border-color: #ddd;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">Alabaster</span>
+                  <span class="swatch-code">#F8F6F0 • 248, 246, 240</span>
+                </div>
+              </div>
+              <div class="swatch-badge" onclick="copyColor('#2D2D2D', 'Graphite')">
+                <span class="swatch-circle" style="background: #2D2D2D;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">Graphite</span>
+                  <span class="swatch-code">#2D2D2D • 45, 45, 45</span>
+                </div>
+              </div>
+              <div class="swatch-badge" onclick="copyColor('#8C7355', 'Warm Bronze')">
+                <span class="swatch-circle" style="background: #8C7355;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">Warm Bronze</span>
+                  <span class="swatch-code">#8C7355 • 140, 115, 85</span>
+                </div>
+              </div>
+              <div class="swatch-badge" onclick="copyColor('#E2E6EA', 'Subtle Slate')">
+                <span class="swatch-circle" style="background: #E2E6EA; border-color: #ccc;"></span>
+                <div class="swatch-info">
+                  <span class="swatch-name">Subtle Slate</span>
+                  <span class="swatch-code">#E2E6EA • 226, 230, 234</span>
+                </div>
+              </div>
+            </div>
+            <div class="swatch-hint">Subtle and natural for clients and management — delicate accents without visual noise.</div>
+          </div>
+        </div>
+
+        <!-- Right: Rooms & Image Direction Placeholder -->
+        <div class="floor-right">
+          <div class="section-subhead">4th Floor Room Nomenclature ("The" Architecture)</div>
+          <div class="rooms-container">
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Atlanta</div>
+              <div class="room-role">Executive Boardroom — tribute to our founding roots and the nexus of major corporate milestones.</div>
+            </div>
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Anchor</div>
+              <div class="room-role">CEO & Leadership Suite — steady, grounded environment for strategic governance and stability.</div>
+            </div>
+            <div class="room-entry">
+              <div class="room-title"><span class="dot"></span>The Horizon</div>
+              <div class="room-role">Client Presentation Suite — looking outward toward future growth and global market opportunities.</div>
+            </div>
+          </div>
+
+          <!-- Image Placeholder Box -->
+          <div class="direction-placeholder" style="margin-top: 20px;">
+            <div class="direction-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            </div>
+            <div class="direction-content">
+              <div class="direction-tag">IMAGE PLACEHOLDER — ART DIRECTION</div>
+              <div class="direction-text"><strong>Executive Feature Wall & Boardroom Glass:</strong> Fine-line frosted glass manifestation with minimal edge reveals. Tactile architectural matte finishes. Optional subtle metallic bronze room identifiers. Ready for direction.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 09: THE STAIRCASE ("THE CURRENT") -->
+  <section class="slide" data-slide="9">
+    <span class="ghost-num">09</span>
+    <div class="body-wrap">
+      <p class="kicker">Vertical Connectivity System</p>
+      <h2>The Current — The Central Staircase</h2>
+      <p class="lede">Transforming the primary stairwell from an overlooked utility into a dynamic, wellness-driven architectural spine connecting all five floors.</p>
+
+      <div class="staircase-grid">
+        <div class="stair-visual-card">
+          <div class="section-subhead">Landing Color-Morph Sequence</div>
+          <p style="font-size: 13.5px; color: var(--mute); line-height: 1.5; margin-bottom: 12px;">Each landing wall features a clean transitional mural that visually blends the color of the floor below into the color of the floor above as you climb.</p>
+
+          <div class="stair-tier-list">
+            <div class="stair-tier">
+              <span class="tier-name">Landing 3 &rarr; 4: The Nexus to The Bridge</span>
+              <span class="tier-color">Sherpa Blue &rarr; Warm Bronze / Slate</span>
+            </div>
+            <div class="stair-tier">
+              <span class="tier-name">Landing 2 &rarr; 3: Nexus Tech Continuum</span>
+              <span class="tier-color">Concrete Black &rarr; Bittersweet Red</span>
+            </div>
+            <div class="stair-tier">
+              <span class="tier-name">Landing 1 &rarr; 2: The Ignite to The Nexus</span>
+              <span class="tier-color">Kitchen Orange &rarr; CommercePundit Monochrome</span>
+            </div>
+            <div class="stair-tier">
+              <span class="tier-name">Ground &rarr; 1: The Origin to The Ignite</span>
+              <span class="tier-color">Workforce Blue &rarr; Kitchen Orange</span>
+            </div>
+          </div>
+
+          <div class="stair-runner-feature">
+            <b>Integrated Wellness Runner:</b> Along the stair skirting and risers runs an active step-count and calorie milestone metric <em>(e.g., "Step 84 • Climbing Higher • 12.8 kcal burned")</em> encouraging active stair usage over elevator trips.
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div class="floor-narrative-card">
+            <div class="narrative-item">
+              <div class="narrative-label">Architectural Intent</div>
+              <div class="narrative-text">By providing continuous visual progress markers, the stairwell becomes a symbol of personal and collective momentum. Team members experience the physical flow of The Circuit every time they move between meetings.</div>
+            </div>
+          </div>
+
+          <div class="direction-placeholder">
+            <div class="direction-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            </div>
+            <div class="direction-content">
+              <div class="direction-tag">IMAGE PLACEHOLDER — ART DIRECTION</div>
+              <div class="direction-text"><strong>Mid-Landing Graphic Walls:</strong> Crisp typography at each landing showing floor numbers and inspirational directional mantras (e.g. <em>"Level 02 • Ascend"</em>). Awaiting sign-off on diagonal gradient vs. clean horizontal color bands.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 10: CREATED SAMPLES SHOWCASE -->
+  <section class="slide" data-slide="10">
+    <span class="ghost-num">10</span>
+    <div class="body-wrap">
+      <p class="kicker">Mockup Gallery & Visual Proofs</p>
+      <h2>Created Samples Showcase</h2>
+      <p class="lede">Explore the five environmental mockup samples created specifically for Atlanta HQ. Click any sample or use the tabs to review architectural application details.</p>
+
+      <div class="sample-showcase-container">
+        <!-- Interactive Gallery Tabs -->
+        <div class="gallery-tabs" id="galleryTabs">
+          <button class="gallery-tab-btn active" onclick="switchSample(0)">01 Ground Wall</button>
+          <button class="gallery-tab-btn" onclick="switchSample(1)">02 Ground Frost</button>
+          <button class="gallery-tab-btn" onclick="switchSample(2)">03 1st Staircase</button>
+          <button class="gallery-tab-btn" onclick="switchSample(3)">04 2nd Canvas</button>
+          <button class="gallery-tab-btn" onclick="switchSample(4)">05 2nd Booth</button>
+        </div>
+
+        <!-- Gallery Viewer with Mockup & Specs -->
+        <div class="gallery-view" id="galleryView">
+          <div class="mockup-frame" onclick="openLightbox()">
+            <img id="sampleImg" src="Mockup_Previews/ground_floor_wall.jpg" alt="Ground Floor Wall Mockup" />
+            <div class="mockup-zoom-overlay">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+              Click to Enlarge
+            </div>
+          </div>
+
+          <div class="mockup-specs">
+            <div class="mockup-kicker" id="sampleKicker">SAMPLE 01 / GROUND FLOOR</div>
+            <h3 class="mockup-title" id="sampleTitle">Ground Floor Reception & Wall Vinyl</h3>
+            <p class="mockup-desc" id="sampleDesc">Large-format wall graphics welcoming guests and staff into The Origin. Combines high-contrast typography with workforce-centered visual identity.</p>
+
+            <div class="mockup-spec-grid" id="sampleSpecs">
+              <div class="spec-item"><span class="spec-label">Substrate</span><span class="spec-val">Matte Cast Wall Vinyl (Low-VOC)</span></div>
+              <div class="spec-item"><span class="spec-label">Location</span><span class="spec-val">Ground Floor Entryway & Cafeteria</span></div>
+              <div class="spec-item"><span class="spec-label">Palette</span><span class="spec-val">Workforce Blue, Black & White</span></div>
+              <div class="spec-item"><span class="spec-label">Purpose</span><span class="spec-val">Immediate brand orientation & welcoming energy</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 11: PHASED EXECUTION ROADMAP -->
+  <section class="slide" data-slide="11">
+    <span class="ghost-num">11</span>
+    <div class="body-wrap">
+      <p class="kicker">Execution Timeline</p>
+      <h2>Phased Rollout Strategy</h2>
+      <p class="lede">A sequenced implementation schedule engineered to minimize office disruption. High-privacy glass film first, followed by prefabricated acoustic panels and weekend wall vinyl installations.</p>
+
+      <div class="phases-grid">
+        <div class="phase-row">
+          <div class="phase-idx">01</div>
+          <div class="phase-name">Glass Manifestation (Frost)</div>
+          <div class="phase-detail">Immediate privacy films installed across all conference suites, starting on Nexus (2nd/3rd) and Origin reception. Zero dust or workstation disruption.</div>
+          <div class="phase-timing">Week 1 – 2</div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-idx">02</div>
+          <div class="phase-name">Acoustic Column Canvases</div>
+          <div class="phase-detail">Off-site printed gallery wraps mounted to structural pillars and phone booths across Kitchen365 and CommercePundit open bays.</div>
+          <div class="phase-timing">Week 2 – 3</div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-idx">03</div>
+          <div class="phase-name">Feature Wall Vinyls & Murals</div>
+          <div class="phase-detail">Large-format vinyl applications scheduled after-hours and weekends, starting with Ground Floor welcome wall and ascending floor by floor.</div>
+          <div class="phase-timing">Week 3 – 4</div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-idx">04</div>
+          <div class="phase-name">The Current (Staircase)</div>
+          <div class="phase-detail">Landing gradient painting, vinyl typography, and step-count metric runner applied once floor color lock-in is verified.</div>
+          <div class="phase-timing">Week 4 – 5</div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-idx">05</div>
+          <div class="phase-name">Architectural Signage & Plaques</div>
+          <div class="phase-detail">Laser-cut metal and acrylic room nameplates installed with final "The" room nomenclature and wayfinding arrows.</div>
+          <div class="phase-timing">Week 5 – 6</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 12: LEADERSHIP SIGN-OFF -->
+  <section class="slide" data-slide="12">
+    <span class="ghost-num">12</span>
+    <div class="body-wrap">
+      <p class="kicker">Decisions & Sign-Off</p>
+      <h2>What We Need to Proceed</h2>
+      <p class="lede">Three clear decisions to transition from concept into production samples and vendor procurement.</p>
+
+      <div class="signoff-box">
+        <div class="signoff-item">
+          <div class="signoff-check">&check;</div>
+          <div class="signoff-text">
+            <h4>1. Concept & Circuit Narrative Approval</h4>
+            <p>Sign-off on "The Circuit" building story and the unified "The" naming standard across all floors and meeting rooms.</p>
+          </div>
+        </div>
+
+        <div class="signoff-item">
+          <div class="signoff-check">&check;</div>
+          <div class="signoff-text">
+            <h4>2. Floor-Specific Color Palettes</h4>
+            <p>Approval of Workforce Blue (Ground), Kitchen Orange (1st), CommercePundit Concrete/Bittersweet/Sherpa (2nd/3rd), and Bridge Restrained Neutrals (4th).</p>
+          </div>
+        </div>
+
+        <div class="signoff-item">
+          <div class="signoff-check">&check;</div>
+          <div class="signoff-text">
+            <h4>3. Authorization for Physical Proofs</h4>
+            <p>Approval to produce physical material samples (matte vinyl test prints, frosted film swatches, canvas edge wraps) matching the 5 showcase mockups.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="signoff-action">
+        <button class="primary-action-btn" onclick="alert('Thank you! Project team notified of executive review readiness.')">Approve & Proceed to Material Proofs</button>
+        <span class="signoff-note">Thank you — Atlanta HQ Workplace Experience Team</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+<!-- NAVIGATION DOCK -->
+<nav class="nav-dock">
+  <div class="nav-controls-left">
+    <button class="nav-btn" id="prevBtn" title="Previous Slide (Left Arrow)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      Prev
+    </button>
+    <button class="nav-btn" id="nextBtn" title="Next Slide (Right Arrow or Space)">
+      Next
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+
+  <div class="nav-controls-center">
+    <span class="nav-count" id="navCount">01 / 12</span>
+  </div>
+
+  <div class="nav-controls-right">
+    <button class="icon-btn" id="overviewBtn" title="Slide Overview (O)" onclick="toggleDrawer()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+    </button>
+    <button class="icon-btn" id="fsBtn" title="Toggle Fullscreen (F)" onclick="toggleFullscreen()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- SLIDE OVERVIEW DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer(event)">
+  <div class="drawer-panel" onclick="event.stopPropagation()">
+    <div class="drawer-header">
+      <div class="drawer-title">Slide Overview</div>
+      <button class="drawer-close" onclick="toggleDrawer()">&times;</button>
+    </div>
+    <div class="drawer-list" id="drawerList"></div>
+  </div>
+</div>
+
+<!-- LIGHTBOX MODAL FOR MOCKUPS -->
+<div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Enlarged Mockup" />
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</div>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* Mockup Showcase Data */
+const SAMPLES = [
+  {
+    kicker: "SAMPLE 01 / GROUND FLOOR",
+    title: "Ground Floor Wall Graphic",
+    desc: "Large-format wall graphics welcoming guests and staff into The Origin. Combines high-contrast typography with workforce-centered visual identity.",
+    img: "Mockup_Previews/ground_floor_wall.jpg",
+    specs: [
+      { label: "Substrate", val: "Matte Cast Wall Vinyl (Low-VOC adhesive)" },
+      { label: "Location", val: "Ground Floor Entryway & Cafeteria Corridor" },
+      { label: "Palette", val: "Workforce Blue (#1E5FFF), Black & White" },
+      { label: "Objective", val: "Immediate brand orientation & welcoming energy" }
+    ]
+  },
+  {
+    kicker: "SAMPLE 02 / GROUND FLOOR",
+    title: "Ground Floor Glass Frost Manifestation",
+    desc: "Precision-cut architectural dusted frost film on glass meeting suites. Provides comfortable visual privacy for interviews while letting natural light filter through.",
+    img: "Mockup_Previews/ground_floor_frost.jpg",
+    specs: [
+      { label: "Substrate", val: "3M Dusted Crystal Architectural Film" },
+      { label: "Location", val: "The Discover & The Thrive Conference Rooms" },
+      { label: "Pattern", val: "Minimalist Horizontal Manifestation Band" },
+      { label: "Objective", val: "Interview privacy with natural ambient light" }
+    ]
+  },
+  {
+    kicker: "SAMPLE 03 / 1ST FLOOR",
+    title: "1st Floor Staircase Transition",
+    desc: "Staircase landing wall graphic heralding arrival at The Ignite. Vibrant Kitchen365 brand palette marks the transition from foundational ground into high gear.",
+    img: "Mockup_Previews/first_floor_staircase.jpg",
+    specs: [
+      { label: "Substrate", val: "Direct Architectural Wall Vinyl" },
+      { label: "Location", val: "1st Floor Stairwell Landing & Doorway" },
+      { label: "Palette", val: "Kitchen Orange (#FF7A29) & Charcoal" },
+      { label: "Objective", val: "Dynamic transitional orientation between floors" }
+    ]
+  },
+  {
+    kicker: "SAMPLE 04 / 2ND FLOOR",
+    title: "2nd Floor Column / Wall Canvas",
+    desc: "Gallery-wrapped acoustic canvas mounted onto central structural columns in the CommercePundit workstation bays. Softens acoustics while establishing brand voice.",
+    img: "Mockup_Previews/second_floor_canvas.jpg",
+    specs: [
+      { label: "Substrate", val: "Heavyweight Stretched Fabric + Acoustic Core" },
+      { label: "Location", val: "The Nexus Open Engineering & Marketing Bays" },
+      { label: "Palette", val: "Concrete (#F2F2F2), White & Black" },
+      { label: "Objective", val: "Sound absorption & inspiring typographic cadence" }
+    ]
+  },
+  {
+    kicker: "SAMPLE 05 / 2ND FLOOR",
+    title: "2nd Floor Focus Booth Nook",
+    desc: "Acoustic-lined private call pod graphics. Minimalist, uncluttered typography ('Innovate' / 'Elevate') providing focused ambiance for individual video calls.",
+    img: "Mockup_Previews/second_floor_booth.jpg",
+    specs: [
+      { label: "Substrate", val: "Precision Matte Cut Decals on Felt Backing" },
+      { label: "Location", val: "Floor 2 & 3 Individual Calling Pods" },
+      { label: "Palette", val: "Sherpa Blue (#005463) & Bittersweet (#FC766A)" },
+      { label: "Objective", val: "Compact private environment for high-focus calls" }
+    ]
+  }
+];
+
+let activeSampleIdx = 0;
+
+function switchSample(idx) {
+  activeSampleIdx = idx;
+  const sample = SAMPLES[idx];
+  
+  // Update Tab active classes
+  document.querySelectorAll(".gallery-tab-btn").forEach((btn, i) => {
+    btn.classList.toggle("active", i === idx);
+  });
+
+  // Update image
+  const imgEl = document.getElementById("sampleImg");
+  imgEl.src = sample.img;
+  imgEl.alt = sample.title;
+
+  // Update text
+  document.getElementById("sampleKicker").textContent = sample.kicker;
+  document.getElementById("sampleTitle").textContent = sample.title;
+  document.getElementById("sampleDesc").textContent = sample.desc;
+
+  // Update specs table
+  const specsEl = document.getElementById("sampleSpecs");
+  specsEl.innerHTML = sample.specs.map(s => 
+    `<div class="spec-item"><span class="spec-label">${s.label}</span><span class="spec-val">${s.val}</span></div>`
+  ).join("");
+}
+
+function openLightbox() {
+  const sample = SAMPLES[activeSampleIdx];
+  const modal = document.getElementById("lightboxModal");
+  const img = document.getElementById("lightboxImg");
+  const caption = document.getElementById("lightboxCaption");
+  
+  img.src = sample.img;
+  caption.textContent = `${sample.kicker} — ${sample.title}`;
+  modal.classList.add("open");
+}
+
+function closeLightbox(e) {
+  document.getElementById("lightboxModal").classList.remove("open");
+}
+
+/* Color Swatch Copy Toast */
+function copyColor(hex, name) {
+  navigator.clipboard.writeText(hex).then(() => {
+    showToast(`Copied ${name} (${hex}) to clipboard!`);
+  }).catch(() => {
+    showToast(`${name}: ${hex}`);
+  });
+}
+
+function showToast(msg) {
+  const toast = document.getElementById("toast");
+  toast.textContent = msg;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2600);
+}
+
+/* Deck Navigation Engine */
+const deck = document.getElementById("deck");
+const slides = Array.from(deck.querySelectorAll(".slide"));
+let currentSlide = 0;
+
+const slideTitles = [
+  "01 • Cover: The Circuit",
+  "02 • Why Environmental Identity Matters",
+  "03 • The Circuit: Building-Wide Narrative",
+  "04 • Scope at a Glance: 5 Deliverables",
+  "05 • Ground Floor: The Origin (Workforce 24/7)",
+  "06 • 1st Floor: The Ignite (Kitchen365)",
+  "07 • 2nd & 3rd Floors: The Nexus (CommercePundit)",
+  "08 • 4th Floor: The Bridge (Leadership)",
+  "09 • The Current: Central Staircase & Spine",
+  "10 • Created Samples Showcase (5 Mockups)",
+  "11 • Phased Rollout Strategy",
+  "12 • Leadership Sign-Off & Next Steps"
+];
+
+function initDrawer() {
+  const list = document.getElementById("drawerList");
+  list.innerHTML = slideTitles.map((title, i) => `
+    <button class="drawer-item ${i === currentSlide ? 'active' : ''}" onclick="goToSlide(${i})">
+      <span class="item-num">${String(i + 1).padStart(2, '0')}</span>
+      <span class="item-text">${title.replace(/^[0-9]+ • /, '')}</span>
+    </button>
+  `).join("");
+}
+
+function goToSlide(idx) {
+  idx = Math.max(0, Math.min(slides.length - 1, idx));
+  slides.forEach((s, i) => s.classList.toggle("active", i === idx));
+  currentSlide = idx;
+
+  document.getElementById("navCount").textContent = `${String(idx + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+  document.getElementById("prevBtn").disabled = idx === 0;
+  document.getElementById("nextBtn").disabled = idx === slides.length - 1;
+  document.getElementById("progressFill").style.width = `${((idx + 1) / slides.length) * 100}%`;
+
+  // Update drawer active item
+  document.querySelectorAll(".drawer-item").forEach((item, i) => {
+    item.classList.toggle("active", i === idx);
+  });
+
+  // Close drawer if open
+  closeDrawer();
+}
+
+function toggleDrawer() {
+  document.getElementById("drawerOverlay").classList.toggle("open");
+}
+
+function closeDrawer(e) {
+  document.getElementById("drawerOverlay").classList.remove("open");
+}
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(() => {});
+  } else {
+    document.exitFullscreen().catch(() => {});
+  }
+}
+
+// Event Listeners
+document.getElementById("prevBtn").addEventListener("click", () => goToSlide(currentSlide - 1));
+document.getElementById("nextBtn").addEventListener("click", () => goToSlide(currentSlide + 1));
+
+window.addEventListener("keydown", (e) => {
+  // If lightbox is open, Escape closes it
+  if (e.key === "Escape") {
+    closeLightbox();
+    closeDrawer();
+    return;
+  }
+  if (e.key === "ArrowRight" || e.key === " ") {
+    goToSlide(currentSlide + 1);
+  } else if (e.key === "ArrowLeft") {
+    goToSlide(currentSlide - 1);
+  } else if (e.key === "Home") {
+    goToSlide(0);
+  } else if (e.key === "End") {
+    goToSlide(slides.length - 1);
+  } else if (e.key === "f" || e.key === "F") {
+    toggleFullscreen();
+  } else if (e.key === "o" || e.key === "O") {
+    toggleDrawer();
+  }
+});
+
+// Touch Navigation for mobile/tablets
+let touchStartX = null;
+window.addEventListener("touchstart", (e) => {
+  touchStartX = e.touches[0].clientX;
+});
+window.addEventListener("touchend", (e) => {
+  if (touchStartX === null) return;
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  if (dx < -45) goToSlide(currentSlide + 1);
+  if (dx > 45) goToSlide(currentSlide - 1);
+  touchStartX = null;
+});
+
+// Initialize
+initDrawer();
+goToSlide(0);
+</script>
+</body>
+</html>
